@@ -1,5 +1,7 @@
 # gosireka
 
+[Green Fox Really Syllabus](https://github.com/green-fox-academy/really-syllabus)
+
 [Git Lesson Repository](https://github.com/gosireka/git-lesson-repository)
 
 [Hello World Repository](https://github.com/gosireka/hello-world)
