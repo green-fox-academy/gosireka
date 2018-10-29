@@ -4,7 +4,6 @@ let lineCount: number = 6;
 
 let percentage: string = '%';
 let maxSpace: string = '    ';
-let maxPercentage: string = '%%%%%%';
 
 for (let i: number = 1; i <= lineCount; i++){
     if( i == 1 || i == lineCount){
