@@ -1,7 +1,17 @@
 'use strict';
 
 let lineCount: number = 4;
+let asterisk: string = '*';
+let space:  string =' ';
+let addAsterisk: string = '**';
 
+for (let i: number = 1; i <= lineCount; i++){
+    console.log((space.repeat(lineCount-i) + asterisk));
+    asterisk += addAsterisk;
+}
+
+// First try
+/*
 let space1: string = ' ';
 let space2: string = space1 + space1;
 let space3: string = space2 + space1;
@@ -19,16 +29,8 @@ for (let i: number = 1; i <= lineCount; i++){
         console.log(space1 + asterisk);
     }else{
         asterisk += '**';
-        console.log(asterisk);
+        console.log(space1 + asterisk);
     }
 }
 
-// Write a program that draws a
-// pyramid like this:
-//
-//    *
-//   ***
-//  *****
-// *******
-//
-// The pyramid should have as many lines as lineCount is
+*/
