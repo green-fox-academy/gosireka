@@ -2,13 +2,13 @@
 
 let lineCount: number = 8;
 let space: string = ' ';
-let percentageLine: string = '% % % %';
+let percentage: string = '% ';
 
 for(let i: number = 1; i <=lineCount; i++){
     if(i % 2 !== 0){
-        console.log(percentageLine);
+        console.log(percentage.repeat(lineCount/2));
     }else{
-        console.log(space + percentageLine);
+        console.log(space + percentage.repeat(lineCount/2));
     }
 }
 
