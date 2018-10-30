@@ -19,15 +19,14 @@ let numList = [3, 4, 5, 6, 7];
 console.log(reverseArray(numList));
 */
 
+
 function secondReverse (list){
-    let backwardIndex = list.length-1;
-    for ( let i = 0; i <= backwardIndex; i++){
-        let temp = list[i];
-        list[i] = list[backwardIndex];
-        list[backwardIndex] = temp;
-        backwardIndex--;
+    let reversedArray = []; 
+    let lastIndex = list.length-1;
+    for (let i = 0; i < list.length; i++){
+       reversedArray[i] = list[lastIndex - i];
     }
-    return list;
+    return reversedArray;
 }
 
 console.log(secondReverse(numList));
