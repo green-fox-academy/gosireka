@@ -16,10 +16,42 @@ export{}
 
 let matrix = [];
 
+let zero: string = '0';
+let one: string = '1';
+
+let givenNumber = 10;
+
+function drawMatrix (number: number) {
+    for(let x: number = 0; x < number; x++) {
+        matrix[x] = buildRow(number, x);
+    }
+    return matrix;
+}
+
+function buildRow (rowLength: number, actualRowIndex: number) {
+    let row = [];
+    for(let y: number = 0; y < rowLength; y++) {
+        if (rowLength - 1 - actualRowIndex  == y) {
+            row[y] = one;
+        } else {
+            row[y] = zero;
+        }
+    }
+    return row;
+}
+
+drawMatrix(givenNumber);
+
+console.log(matrix);
+
+/* First try
+
+let matrix = [];
+
 let zero: string = '0 ';
 let one: string = '1 ';
 
-let givenNumber = 7;
+let givenNumber = 10;
 
 function drawMatrix (number: number) {
     for(let i: number = 0; i < number; i++) {
@@ -31,3 +63,5 @@ function drawMatrix (number: number) {
 drawMatrix(givenNumber);
 
 console.log(matrix);
+
+*/
