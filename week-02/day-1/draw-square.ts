@@ -4,13 +4,15 @@ export{}
 
 let lineCount: number = 6;
 let percentage: string = '%';
-let maxSpace: string = '    ';
+let space: string = ' ';
 
-for (let i: number = 1; i <= lineCount; i++){
-    if( i === 1 || i === lineCount){
-        console.log(percentage.repeat(lineCount));
-    }else{
-        console.log(percentage + maxSpace + percentage);
+for (let actualRow: number = 0; actualRow < lineCount; actualRow++) {
+    if (actualRow === 0 || actualRow === lineCount -1) {
+        let row = percentage.repeat(lineCount);
+        console.log(row);
+    } else {
+        let row = percentage + space.repeat(lineCount - 2) + percentage;
+        console.log(row);
     }
 }
 
