@@ -7,12 +7,11 @@ export{}
 
 let abc = ["Arthur", "Boe", "Chloe"];
 
-function swapElements(list){
-    let shouldSwap = list[0];
-    list [0] = list [2];
-    list[2] = shouldSwap;
+function swapElements(list) {
+    let temp = list[0];
+    list[0] = list[2];
+    list[2] = temp;
     return list; 
 }
 
 console.log(swapElements(abc));
-
