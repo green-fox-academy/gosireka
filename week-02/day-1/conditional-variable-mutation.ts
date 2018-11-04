@@ -4,7 +4,7 @@ let a: number = 24;
 let out: number = 0;
 
 // if a is even increment out by one
-if(a % 2 == 0){
+if (a % 2 == 0) {
     out++;
 }
 
@@ -17,11 +17,11 @@ let out2: string = '';
 // if less than 10 set out2 to "Less!",
 // if more than 20 set out2 to "More!"
 
-if (b >= 10 && b <= 20){
+if (b >= 10 && b <= 20) {
     out2 = "Sweet!";
-}else if(b < 10){
+} else if (b < 10) {
     out2 = "Less!";
-}else{
+} else {
     out2 = "More!";
 }
 
@@ -37,14 +37,11 @@ let isBonus: boolean = false;
 // and is_bonus is false decrement c by 1
 // if is_bonus is true c should remain the same
 
-if (isBonus){
-    c
-}else if(credits  >= 50){
-    c -=2;
-}else{
+if (credits >= 50 && !isBonus) {
+    c -= 2;
+  } else if (credits < 50 && !isBonus) {
     c -=1;
-}
-
+  } 
 
 console.log(c);
 
@@ -59,11 +56,11 @@ let out3: string = '';
 // set out3 to "Time out"
 // otherwise set out3 to "Run Forest Run!"
 
-if ( d % 4 == 0 && time <= 200){
+if (d % 4 === 0 && time <= 200) {
     out3 = "check";
-}else if(time > 200){
+} else if (time > 200) {
     out3 = "Time out";
-}else{
+} else {
     out3 = "Run Forest Run!";
 }
 
