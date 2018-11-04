@@ -8,7 +8,7 @@ export{}
 
 let baseNum: number = 123;
 
-function doubling(num : number){
+function doubling(num : number) {
     return Math.round((num * 2));
 }
 
