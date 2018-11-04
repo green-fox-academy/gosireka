@@ -20,9 +20,6 @@ function printIntegers (list){
 printIntegers(integers);
 */
 
-
-integers.forEach(function(value){
+integers.forEach(function (value) {
     console.log(value);
 });
-
-
