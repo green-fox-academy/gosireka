@@ -64,7 +64,7 @@ console.log(isDivisible);
 // tell if j is divisible by 3 or 5 (as a boolean)
 
 let k: string = 'Apple';
-k = k + k + k + k; 
+k = k.repeat(4);
 // fill the k variable with its content 4 times
 
 console.log(k);
