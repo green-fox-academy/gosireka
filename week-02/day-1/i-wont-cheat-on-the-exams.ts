@@ -1,8 +1,9 @@
 'use strict';
 
-let line : string = "I won't cheat on the exam!";
+let givenNumber: number = 100;
+let line: string = "I won't cheat on the exam!";
 
-for (let i: number = 0; i < 100; i++){
+for (let i: number = 0; i < givenNumber; i++) {
     console.log(line);
 }
 
