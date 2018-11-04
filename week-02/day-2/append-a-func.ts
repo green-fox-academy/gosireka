@@ -8,10 +8,10 @@ export{}
 // -  Print the result of `appendAFunc(typo)`
 
 let typo: string = 'Chinchill';
+let plus: string = 'a';
 
-function appendAFunc (word: string){
-    let newWord: string = word + "a";
-    return newWord;
+function appendAFunc (word: string): string {
+    return word.concat(plus);
 }
 
 console.log(appendAFunc(typo));
