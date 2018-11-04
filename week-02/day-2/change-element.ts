@@ -8,13 +8,11 @@ export{}
 
 let numList = [1, 2, 3, 8, 5, 6];
 
-let newList = numList.map(function(value){
-    if(value !== 8){
-        return value;
-    }else{
-        value = 4;
-        return value;
-    }
-})
+let newList = numList.map(function (value) {
+    if (value === 8) {
+        return 4;
+    } 
+    return value;
+  });
 
-console.log(newList[3]);
+  console.log(newList[3]);
