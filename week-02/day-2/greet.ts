@@ -10,8 +10,8 @@ export{}
 
 let name: string = 'Greenfox';
 
-function greet (name = 'Stranger'){
-    console.log('Greetings, dear ' + name)
+function greet(name: string = 'Stranger'): string {
+    return 'Greetings, dear ' + name;
 }
 
-greet (name);
+console.log(greet(name));
