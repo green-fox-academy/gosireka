@@ -8,9 +8,9 @@ export{}
 let givenNumber: number = 6;
 
 
-function sum (num : number){
+function sum (num : number): number {
     let sum: number = 0;
-    for (let i: number= 0; i <= givenNumber; i++){
+    for (let i: number= 0; i <= givenNumber; i++) {
         sum += i;
     }
     return sum;
