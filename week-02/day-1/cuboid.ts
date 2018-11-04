@@ -4,12 +4,13 @@ let a: number = 20;
 let b: number = 16.5;
 let c: number = 12.5;
 
-let firstSideSurface = a * b;
-let secondSideSurface = a * c;
-let thirdSideSurface = b * c;
+let firstSide = a * b;
+let secondSide = a * c;
+let thirdSide = b * c;
 
-let totalSurface = (firstSideSurface + secondSideSurface + thirdSideSurface).toFixed(2);
+let totalSurface = ((firstSide + secondSide + thirdSide) * 2).toFixed(2);
 let totalVolume = (a * b * c).toFixed(2);
+
 console.log('Surface Area: ' + totalSurface);
 console.log('Volume: ' + totalVolume);
 
