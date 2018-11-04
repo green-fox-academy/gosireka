@@ -1,16 +1,15 @@
 'use strict';
 
-for (let i: number = 1; i <= 100; i++){
-    if(i % 5 == 0 && i % 3 == 0){
+for (let i: number = 1; i <= 100; i++) {
+    if (i % 5 === 0 && i % 3 === 0) {
         console.log('FizzBuzz')
-    }else if(i % 3 == 0 ){
+    } else if (i % 3 === 0 ) {
         console.log('Fizz');
-    }else if(i % 5 == 0 ){
+    } else if (i % 5 === 0 ) {
         console.log('Buzz');
-    }else{
+    } else {
         console.log(i);
     }
-    
 }
 
 // Write a program that prints the numbers from 1 to 100.
