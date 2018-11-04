@@ -6,13 +6,13 @@ let lineCount: number = 7;
 let space: string = ' ';
 let asterisk: string = '*'
 
-for (let row: number= 0; row < lineCount; row++){
-    if( row < lineCount/2){
+for (let row: number= 0; row < lineCount; row++) {
+    if (row < lineCount / 2) {
         let asteriskCount: number = 1 + row * 2;
         let spaceCount: number = (lineCount - asteriskCount) / 2 ;
         console.log(space.repeat(spaceCount) + asterisk.repeat(asteriskCount));
-    }else{
-        let asteriskCount: number = (lineCount - (row + 1)) * 2 + 1;
+    } else {
+        let asteriskCount: number = lineCount - (2 * (row - ((lineCount - 1) / 2)));
         let spaceCount: number = (lineCount - asteriskCount) / 2;
         console.log(space.repeat(spaceCount) + asterisk.repeat(asteriskCount));
     }
