@@ -8,7 +8,7 @@ export{}
 
 let drinks = ['Gin', 'Whiskey', 'Wine', 'Beer'];
 
-let newDrinks = drinks.map(function(value){
+let newDrinks = drinks.map(function(value) {
         value += value;
         return value;
 })
