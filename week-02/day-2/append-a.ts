@@ -10,10 +10,9 @@ let animals = ["koal", "pand", "zebr"];
 
 let char = 'a';
 
-let newAnimals = animals.map(function(value){
+let newAnimals = animals.map(function(value) {
         value += char;
         return value;
 })
 
 console.log(newAnimals);
-
