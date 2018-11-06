@@ -13,6 +13,8 @@
 
 let todoText: string = ' - Buy milk\n';
 
-todoText = 'My todo:\n' + todoText + ' - Download games\n\t' + ' - Diablo';
+todoText = 'My todo:\n' + todoText;
+todoText += ' - Download games\n';
+todoText +='\t - Diablo'
 
 console.log(todoText);
