@@ -2,16 +2,16 @@
 
 let shopItems: any[] = ['Cupcake', 2, 'Brownie', false];
 
-function sweets(list){
-  let newList = list.map(function (value){
-    if (typeof value === "number"){
-      value = 'Croissant';
-    } else if (typeof value === "boolean"){
-      value = 'Ice cream';
+function sweets(arr) {
+  let newArr = arr.map(function (element) {
+    if (typeof element === "number") {
+      return 'Croissant';
+    } else if (typeof element === "boolean") {
+      return 'Ice cream';
     } 
-    return value;
+    return element;
   })
-  return newList;
+  return newArr;
 }
 
 console.log(sweets(shopItems));
