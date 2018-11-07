@@ -7,8 +7,6 @@ let out: string = '';
 
 let notSoCrypticMessage: number[] = [1, 12, 1, 2, 11, 1, 7, 11, 1, 49, 1, 3, 11, 1, 50, 11];
 
-
-
 let hashmap = {
   7: 'run around and desert you',
   50: 'tell a lie and hurt you ',
@@ -20,10 +18,8 @@ let hashmap = {
   3: 'say goodbye '
 };
 
-for(let i = 0; i < notSoCrypticMessage.length; i++){
-  let line = Object.values(hashmap[notSoCrypticMessage[i]]).join('');
-  out = out.concat(line);
-  
-}
+notSoCrypticMessage.forEach(function (actualNum) {
+  out += hashmap[actualNum]; 
+})
 
 console.log(out);
