@@ -3,16 +3,16 @@
 //  Returns the indexes of the numbers in the list where the first number is part of
 //  Returns an empty list if the number is not part any of the numbers in the list
 
-function contains(searchedNum, num) {
-  let searchedString = searchedNum.toString();
-  let numString = num.toString();
-  return numString.indexOf(searchedString);
+function digitPartOf(searchedNum: number, num: number): boolean {
+  let searchedString: string = searchedNum.toString();
+  let numString: string = num.toString();
+  return numString.indexOf(searchedString) !== -1;
 }
 
-function subint(searchedNum, list) {
-  let indexes = [];
-  for (let i = 0; i < list.length; i++) {
-    if (contains(searchedNum, list[i]) !== -1) {
+function subint(searchedNum: number, list: number[]): number[]{
+  let indexes: number[] = [];
+  for (let i: number = 0; i < list.length; i++) {
+    if (digitPartOf(searchedNum, list[i])) {
       indexes.push(list.indexOf(list[i]));
     }
   }
