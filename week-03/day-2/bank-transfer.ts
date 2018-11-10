@@ -10,11 +10,11 @@ const accounts: any[] = [
 // getNameAndBalance(11234543);
 // should return: ['Igor', 203004099.2]
 
-function getNameAndBalance (number) {
+function getNameAndBalance(number: number): void {
   accounts.forEach(function (client) {
     if (client.accountNumber === number) {
       console.log(client.clientName + ', ' + client.balance);
-    } 
+    }
   })
 }
 
@@ -29,34 +29,34 @@ getNameAndBalance(11234543);
 //
 // Log "404 - account not found" if any of the account numbers don't exist to the console.
 
-let fromAccount = 43546731;
-let toAccount = 23456311;
-
-function contains (account) {
-  if (account.accountNumber === fromAccount || account.accountNumber === toAccount) {
-    return account.accountNumber === fromAccount;
-  }
+function contains(arr: any[], fromNum: number, toNum: number): boolean {
+  let containsFromNum: boolean = false;
+  let containsToNum: boolean = false;
+  arr.forEach(function (client: any): void {
+    if (client.accountNumber === fromNum) {
+      containsFromNum = true;
+    } else if (client.accountNumber === toNum) {
+      containsToNum = true;
+    }
+  })
+  return containsFromNum && containsToNum;
 }
 
-function transferAmount (arr, fromNum, toNum, amountOfCash) {
-  if ( (arr.find(contains)) !== undefined) {
-
-    arr.forEach(function (client) {
+function transferAmount(arr: any[], fromNum: number, toNum: number, amountOfCash: number): void {
+  if (contains(arr, fromNum, toNum)) {
+    arr.forEach(function (client: any): void {
       if (client.accountNumber === fromNum) {
         client.balance -= amountOfCash;
       } else if (client.accountNumber === toNum) {
         client.balance += amountOfCash;
-      } 
-      return client.balance;
+      }
     })
-
   } else {
-      console.log('404 - account not found');
-    }
+    console.log('404 - account not found');
+  }
 }
 
-
-transferAmount(accounts, fromAccount, toAccount, 500.0);
+transferAmount(accounts, 43546731, 23456311, 500.0);
 
 console.log(accounts);
 
