@@ -27,67 +27,79 @@ const ingredients: any[] = [
   { name: 'soda', inStock: 0, needsCooling: true }
 ];
 
-//------Find out the rows width------ 
-let namesLength = [];
-let headTitles = ['Ingredient', 'Needs cooling', 'In stock'];
+//------Calculates the rows width------ 
+let headTitles: string[] = ['Ingredient', 'Needs cooling', 'In stock'];
+let maxFirst: number = calculateFirstWidth(ingredients);
 
-ingredients.forEach(function (ingredient) {
-  let name: string = ingredient.name;
-  namesLength.push(name.length);
-})
+function calculateFirstWidth(arr) {
+  let namesLength: number[] = [];
+  arr.forEach(function (ingredient: any): void {
+    let name: string = ingredient.name;
+    namesLength.push(name.length);
+  })
+  return Math.max(...namesLength);
+}
 
-let maxName = Math.max(...namesLength);
-let maxSecondTitle = headTitles[1].length;
-let maxThirdTitle = headTitles[2].length;
+let maxSecondTitle: number = headTitles[1].length;
+let maxThirdTitle: number = headTitles[2].length;
 
 //------Draws horizontal separator-----
-
-let horizontalSeparator: string;
 let plus: string = '+';
 let minus: string = '-';
 let verticalLine: string = '|';
 let space: string = ' ';
 
-function drawHorizontalSeparator(firstWidth, secondWidth, thirdWidth) {
+function drawHorizontalSeparator(firstWidth: number, secondWidth: number, thirdWidth: number) {
   let firstSection: string = plus.concat(minus.repeat(firstWidth));
   let secondSection: string = plus.concat(minus.repeat(secondWidth));
   let thirdSection: string = plus.concat(minus.repeat(thirdWidth).concat(plus));
-  console.log(horizontalSeparator = firstSection.concat(secondSection).concat(thirdSection));
+  let horizontalSeparator: string = firstSection.concat(secondSection).concat(thirdSection);
+  console.log(horizontalSeparator);
 }
 
 //------Draws header of the table --------
-function drawHeader(maxName, maxSecondTitle, maxThirdTitle) {
+function drawHeader(maxName: number, maxSecondTitle: number, maxThirdTitle: number) {
   drawHorizontalSeparator(maxName, maxSecondTitle, maxThirdTitle);
-  let firstPart= verticalLine.concat(headTitles[0].concat(space.repeat(maxName - headTitles[0].length)));
-  let secondPart = verticalLine.concat(headTitles[1]);
-  let thirdPart = verticalLine.concat(headTitles[2]).concat(verticalLine);
-  let fullHeaderRow = firstPart + secondPart + thirdPart;
+  let firstPart: string = verticalLine.concat(headTitles[0].concat(space.repeat(maxName - headTitles[0].length)));
+  let secondPart: string = verticalLine.concat(headTitles[1]);
+  let thirdPart: string = verticalLine.concat(headTitles[2]).concat(verticalLine);
+  let fullHeaderRow: string = firstPart.concat(secondPart).concat(thirdPart);
   console.log(fullHeaderRow);
   drawHorizontalSeparator(maxName, maxSecondTitle, maxThirdTitle);
 }
 
 //------Draws table--------
-function drawTable (ingredients) {
-  drawHeader(maxName, maxSecondTitle, maxThirdTitle);
-  for (let i = 0; i < ingredients.length; i++) {
-    let stringNeedsCooling: string = '';
-    if(ingredients[i].needsCooling){
-      stringNeedsCooling = 'Yes';
-    } else {
-      stringNeedsCooling = 'No';
-    }
-    let firstTableRow = verticalLine.concat(ingredients[i].name).concat(space.repeat(maxName - (ingredients[i].name).length));
-    let secondTableRow = verticalLine.concat(stringNeedsCooling).concat(space.repeat(maxSecondTitle - stringNeedsCooling.length));
-    if(ingredients[i].inStock === 0){
-      ingredients[i].inStock = '-';
-    } else {
-      ingredients[i].inStock = ingredients[i].inStock.toString();
-    }
-    let thirdTableRow = verticalLine.concat(ingredients[i].inStock).concat(space.repeat(maxThirdTitle - ingredients[i].inStock.length)).concat(verticalLine);
-    console.log(firstTableRow + secondTableRow + thirdTableRow);
-  
+function drawTable(ingredients: any): void {
+  drawHeader(maxFirst, maxSecondTitle, maxThirdTitle);
+  ingredients.forEach(function (ingredient: any): void {
+    let coolingString: string = needsCoolingToString(ingredient);
+    let firstTableRow: string = verticalLine.concat(ingredient.name).concat(space.repeat(maxFirst - (ingredient.name).length));
+    let secondTableRow: string = verticalLine.concat(coolingString).concat(space.repeat(maxSecondTitle - coolingString.length));
+    let inStock: string = inStockString(ingredient);
+    let thirdTableRow: string = verticalLine.concat(inStock).concat(space.repeat(maxThirdTitle - inStock.length)).concat(verticalLine);
+    console.log(firstTableRow.concat(secondTableRow).concat(thirdTableRow));
+  })
+  drawHorizontalSeparator(maxFirst, maxSecondTitle, maxThirdTitle);
+}
+
+//------Turns data to string---------
+function needsCoolingToString(ingredient: any): string {
+  let stringNeedsCooling: string = '';
+  if (ingredient.needsCooling) {
+    stringNeedsCooling = 'Yes';
+  } else {
+    stringNeedsCooling = 'No';
   }
-  drawHorizontalSeparator(maxName, maxSecondTitle, maxThirdTitle);
+  return stringNeedsCooling;
+}
+
+function inStockString(ingredient: any): string {
+  if (ingredient.inStock === 0) {
+    ingredient.inStock = '-';
+  } else {
+    ingredient.inStock = ingredient.inStock.toString();
+  }
+  return ingredient.inStock;
 }
 
 //-----Calls drawTable function -------
