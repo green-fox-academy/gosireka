@@ -5,22 +5,22 @@ const ctx = canvas.getContext('2d');
 
 // DO NOT TOUCH THE CODE ABOVE THIS LINE
 
-let firstArr = [[10, 10], [290,  10], [290, 290], [10, 290]];
+let firstArr: number[][] = [[10, 10], [290, 10], [290, 290], [10, 290]];
+let secondArr: number[][] = [[50, 100], [70, 70], [80, 90], [90, 90], [100, 70], [120, 100], [85, 130], [50, 100]];
 
-let secondArr = [[50, 100], [70, 70], [80, 90], [90, 90], [100, 70],[120, 100], [85, 130], [50, 100]];
-
-function connectDots (arr) {
-  let lastIndex = arr.length - 1;
-  for (let i = 0; i <= lastIndex; i++){
-    if (i < lastIndex ){
-      drawLine (arr[i], arr[i+1]);
+function connectDots(arr: number[][]): void {
+  let lastIndex: number = arr.length - 1;
+  for (let i: number = 0; i <= lastIndex; i++) {
+    if (i < lastIndex) {
+      drawLine(arr[i], arr[i + 1]);
     } else {
-      drawLine (arr[lastIndex], arr[0]);
+      drawLine(arr[lastIndex], arr[0]);
     }
   }
 }
 
-function drawLine (coord, nextCoord){
+function drawLine(coord: number[], nextCoord: number[]) {
+  ctx.strokeStyle = "green";
   ctx.beginPath();
   ctx.moveTo(coord[0], coord[1]);
   ctx.lineTo(nextCoord[0], nextCoord[1]);
