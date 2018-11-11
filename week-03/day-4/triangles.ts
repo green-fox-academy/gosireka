@@ -8,33 +8,27 @@ const ctx = canvas.getContext('2d');
 let triangleSize: number = 50;
 let maxTriangleNum: number = canvas.height / triangleSize;
 
-function drawPyramid() {
-  drawStraightLines();
-  drawLeftLines();
-  drawRightLines();
-}
-
-
-function drawStraightLines(): void {
+function drawPyramid(): void {
   for (let i: number = 0; i < maxTriangleNum; i++) {
-    drawLine([i * triangleSize / 2, canvas.height - i * triangleSize], [canvas.width - i * triangleSize / 2, canvas.height - i * triangleSize]);
+    drawHorizontalLines(i);
+    drawLeftLines(i);
+    drawRightLines(i);
   }
 }
 
-function drawLeftLines(): void {
-  for (let k: number = 0; k < maxTriangleNum; k++) {
-    drawLine([canvas.width / 2 + k * triangleSize / 2, k * triangleSize], [k * triangleSize, canvas.height]);
-  }
+function drawHorizontalLines(i: number): void {
+  drawLine([i * triangleSize / 2, canvas.height - i * triangleSize], [canvas.width - i * triangleSize / 2, canvas.height - i * triangleSize]);
 }
 
-function drawRightLines(): void {
-  for (let l: number = 0; l < maxTriangleNum; l++) {
-    drawLine([canvas.width / 2 - l * triangleSize / 2, l * triangleSize], [canvas.width - l * triangleSize, canvas.height])
-  }
+function drawLeftLines(i: number): void {
+  drawLine([canvas.width / 2 + i * triangleSize / 2, i * triangleSize], [i * triangleSize, canvas.height]);
 }
 
+function drawRightLines(i: number): void {
+  drawLine([canvas.width / 2 - i * triangleSize / 2, i * triangleSize], [canvas.width - i * triangleSize, canvas.height]);
+}
 
-function drawLine(fromCoord: number[], toCoord: number[]) {
+function drawLine(fromCoord: number[], toCoord: number[]): void {
   ctx.beginPath();
   ctx.moveTo(fromCoord[0], fromCoord[1]);
   ctx.lineTo(toCoord[0], toCoord[1]);
