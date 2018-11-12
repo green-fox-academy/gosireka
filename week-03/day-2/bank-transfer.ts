@@ -13,12 +13,12 @@ const accounts: any[] = [
 function getNameAndBalance(number: number): void {
   accounts.forEach(function (client) {
     if (client.accountNumber === number) {
-      console.log(client.clientName + ', ' + client.balance);
+      return client.clientName + ', ' + client.balance;
     }
   })
 }
 
-getNameAndBalance(11234543);
+console.log(getNameAndBalance(11234543));
 
 // Create function that transfers an amount of cash from one account to another
 // it should have four parameters:
@@ -32,7 +32,7 @@ getNameAndBalance(11234543);
 function contains(arr: any[], fromNum: number, toNum: number): boolean {
   let containsFromNum: boolean = false;
   let containsToNum: boolean = false;
-  arr.forEach(function (client: any): void {
+  arr.forEach(function (client){
     if (client.accountNumber === fromNum) {
       containsFromNum = true;
     } else if (client.accountNumber === toNum) {
@@ -44,7 +44,7 @@ function contains(arr: any[], fromNum: number, toNum: number): boolean {
 
 function transferAmount(arr: any[], fromNum: number, toNum: number, amountOfCash: number): void {
   if (contains(arr, fromNum, toNum)) {
-    arr.forEach(function (client: any): void {
+    arr.forEach(function (client) {
       if (client.accountNumber === fromNum) {
         client.balance -= amountOfCash;
       } else if (client.accountNumber === toNum) {
