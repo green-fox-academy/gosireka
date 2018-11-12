@@ -2,13 +2,13 @@
 
 let shopItems: any[] = ['Cupcake', 2, 'Brownie', false];
 
-function sweets(arr) {
-  let newArr = arr.map(function (element) {
+function sweets(arr: any[]): string[] {
+  let newArr: string[] = arr.map(function (element) {
     if (typeof element === "number") {
       return 'Croissant';
     } else if (typeof element === "boolean") {
       return 'Ice cream';
-    } 
+    }
     return element;
   })
   return newArr;
