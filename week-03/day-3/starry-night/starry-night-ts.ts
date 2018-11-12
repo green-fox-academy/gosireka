@@ -18,7 +18,7 @@ for (let i: number = 0; i < starNum; i++) {
   drawStar(x, y, color);
 }
 
-function drawStar(x: number, y: number, color: string) {
+function drawStar(x: number, y: number, color: string): void {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, 3, 3);
 }
