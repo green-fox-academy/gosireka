@@ -11,8 +11,8 @@ const students: any[] = [
 // create a function that takes a list of students and logs:
 // - Who has got more candies than 4 candies
 
-function moreCandies(studentList) {
-  for (let i = 0; i < studentList.length; i++) {
+function moreCandies(studentList: any[]): void {
+  for (let i: number = 0; i < studentList.length; i++) {
     let student = studentList[i];
     if (student.candies > 4) {
       console.log(student.name);
@@ -25,8 +25,8 @@ moreCandies(students);
 // create a function that takes a list of students and logs: 
 //  - how many candies they have on average
 
-function averageCandies (studentList) {
-  let sumCandies = 0;
+function averageCandies(studentList: any[]): number {
+  let sumCandies: number = 0;
   for (let i = 0; i < studentList.length; i++) {
     let student = studentList[i];
     sumCandies += student.candies;
