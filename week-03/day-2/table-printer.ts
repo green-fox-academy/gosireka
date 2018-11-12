@@ -31,11 +31,10 @@ const ingredients: any[] = [
 let headTitles: string[] = ['Ingredient', 'Needs cooling', 'In stock'];
 let maxFirst: number = calculateFirstWidth(ingredients);
 
-function calculateFirstWidth(arr) {
+function calculateFirstWidth(arr: any[]): number { 
   let namesLength: number[] = [];
   arr.forEach(function (ingredient: any): void {
-    let name: string = ingredient.name;
-    namesLength.push(name.length);
+    namesLength.push(ingredient.name.length);
   })
   return Math.max(...namesLength);
 }
@@ -71,7 +70,7 @@ function drawHeader(maxName: number, maxSecondTitle: number, maxThirdTitle: numb
 //------Draws table--------
 function drawTable(ingredients: any): void {
   drawHeader(maxFirst, maxSecondTitle, maxThirdTitle);
-  ingredients.forEach(function (ingredient: any): void {
+  ingredients.forEach(function (ingredient) { 
     let coolingString: string = needsCoolingToString(ingredient);
     let firstTableRow: string = verticalLine.concat(ingredient.name).concat(space.repeat(maxFirst - (ingredient.name).length));
     let secondTableRow: string = verticalLine.concat(coolingString).concat(space.repeat(maxSecondTitle - coolingString.length));
@@ -84,13 +83,7 @@ function drawTable(ingredients: any): void {
 
 //------Turns data to string---------
 function needsCoolingToString(ingredient: any): string {
-  let stringNeedsCooling: string = '';
-  if (ingredient.needsCooling) {
-    stringNeedsCooling = 'Yes';
-  } else {
-    stringNeedsCooling = 'No';
-  }
-  return stringNeedsCooling;
+  return ingredient.needsCooling ? 'Yes' : 'No'; 
 }
 
 function inStockString(ingredient: any): string {
