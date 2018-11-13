@@ -13,8 +13,8 @@ class Animal {
   thirstValue: number;
 
   constructor(hunger: number = 50, thirst: number = 50) {
-    this.hungerValue = hunger;
-    this.thirstValue = thirst;
+    this.hungerValue = Math.round(hunger);
+    this.thirstValue = Math.round(thirst);
   }
   public eat(){
     this.hungerValue--;
@@ -28,7 +28,7 @@ class Animal {
   }
 
 }
-let cat = new Animal(100, 10);
+let cat = new Animal(55.121, 10);
 
 cat.play();
 //cat.drink();
