@@ -43,11 +43,9 @@ diceSet.getCurrent();
 console.log("------------------");
 
 for (let i = 0; i < diceSet.dices.length; i++) {
-  if (diceSet.dices[i] < 6) {
-    while (diceSet.dices[i] < 6) {
+  while (diceSet.dices[i] < 6) {
       diceSet.reroll(i);
     }
-  }
 }
 
 diceSet.getCurrent();
