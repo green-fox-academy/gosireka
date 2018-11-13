@@ -16,13 +16,13 @@ class Animal {
     this.hungerValue = Math.round(hunger);
     this.thirstValue = Math.round(thirst);
   }
-  public eat(){
+  public eat(): void {
     this.hungerValue--;
   }
-  public drink() {
+  public drink(): void {
     this.thirstValue--;
   }
-  public play() {
+  public play(): void {
     this.hungerValue++;
     this.thirstValue++;
   }
