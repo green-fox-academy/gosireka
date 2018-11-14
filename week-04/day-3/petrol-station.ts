@@ -19,8 +19,8 @@ class Station {
     this.gasAmount = gasAmount;
   }
   refill(car: Car) {
-    this.gasAmount -= car.capacity - car.gasAmount;
-    car.gasAmount += car.capacity - car.gasAmount;
+    this.gasAmount--;
+    car.gasAmount++;
   }
 }
 
@@ -50,10 +50,13 @@ carArr.forEach(function (actualCar) {
   if (actualCar.capacity - actualCar.gasAmount <= station.gasAmount) {
     while (actualCar.gasAmount < actualCar.capacity) {
       station.refill(actualCar)
-      console.log('remained gas in the station: ' + station.gasAmount);
     }
+    console.log('remained gas in the station: ' + station.gasAmount);
   } else {
-    console.log('there is not enough gas in the station');
+    while (actualCar.capacity - actualCar.gasAmount > station.gasAmount && station.gasAmount !== 0) {
+      station.refill(actualCar)
+    }
+    console.log('remained gas in the station: ' + station.gasAmount);
   }
 })
 
