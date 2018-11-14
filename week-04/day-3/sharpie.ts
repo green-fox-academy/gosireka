@@ -24,8 +24,7 @@ export class Sharpie {
 
 let sharpie1 = new Sharpie('red', 10.1);
 
-console.log(sharpie1);
+
 
 sharpie1.use();
 
-console.log(sharpie1.inkAmount);

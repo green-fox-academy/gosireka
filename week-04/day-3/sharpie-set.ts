@@ -11,8 +11,8 @@ import { Sharpie } from './sharpie';
 class SharpieSet {
   sharpieSet: Sharpie[] = [];
 
-  constructor(sharpieArr: Sharpie[]){
-    this.sharpieSet = sharpieArr;
+  addSharpie(sharpie: Sharpie){
+    this.sharpieSet.push(sharpie);
   }
 
   countUsable(): number {
@@ -26,24 +26,27 @@ class SharpieSet {
   }
   removeTrash(): void {
     for (let i: number = 0; i < this.sharpieSet.length; i++) {
-      if(this.sharpieSet[i].inkAmount === 0){
+      if (this.sharpieSet[i].inkAmount === 0) {
         this.sharpieSet.splice(i, 1);
       }
     }
   }
 }
 
-function initializeSharpies(): Sharpie [] {
-  let sharpieArr: Sharpie[] = [];
-  sharpieArr.push(new Sharpie('red', 2, 0));
-  sharpieArr.push(new Sharpie('blue', 2, 10));
-  sharpieArr.push(new Sharpie('yellow', 1.5));
-  sharpieArr.push(new Sharpie('green', 1.5, 0));
-  return sharpieArr;
+function initializeSharpies(): Sharpie[] {
+ return [
+  new Sharpie('red', 2, 0),
+  new Sharpie('blue', 2, 10),
+  new Sharpie('yellow', 1.5),
+  new Sharpie('green', 1.5, 0)
+ ]
 }
 
-let sharpieArr = initializeSharpies();
-let sharpieSet = new SharpieSet(sharpieArr);
+let sharpieSet= new SharpieSet;
+
+for (let i = 0; i < initializeSharpies().length; i++) {
+  sharpieSet.addSharpie(initializeSharpies()[i]);
+}
 
 console.log(sharpieSet);
 console.log('-----------');
