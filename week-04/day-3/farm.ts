@@ -13,8 +13,8 @@ class Farm {
   animalList: Animal[] = [];
   slots: number = 1;
 
-  constructor(animalArr: Animal[]) {
-    this.animalList = animalArr;
+  addAnimal(animal: Animal) {
+    this.animalList.push(animal);
   }
 
   breed() {
@@ -38,16 +38,19 @@ class Farm {
 }
 
 function initializeAnimals(): Animal[] {
-  let animalArr: Animal[] = [];
-  animalArr.push(new Animal(20, 2));
-  animalArr.push(new Animal(2, 10));
-  animalArr.push(new Animal(1, 10));
-  animalArr.push(new Animal(10, 0));
-  return animalArr;
+  return [
+    new Animal(20, 2),
+    new Animal(2, 10),
+    new Animal(1, 10),
+    new Animal(10, 0)
+  ]
 }
 
-let animalArr = initializeAnimals();
-let animalList = new Farm(animalArr);
+let animalList = new Farm;
+
+for (let i = 0; i < initializeAnimals().length; i++) {
+  animalList.addAnimal(initializeAnimals()[i]);
+}
 
 console.log(animalList);
 console.log('----------')
