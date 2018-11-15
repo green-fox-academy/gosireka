@@ -1,6 +1,6 @@
 // Given a string, compute recursively a new string where all the 'x' chars have been removed.
 
-function removeX(word: string) {
+function removeX(word: string) : string{
   if (word.indexOf('x') === -1) {
     return word;
   } else {
