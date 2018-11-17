@@ -16,7 +16,7 @@ let dominoes = initializeDominoes();
 /** Order them into one snake where the adjacent dominoes have the same numbers on their adjacent sides */
 /** eg: [2, 4], [4, 3], [3, 5] ... */
 
-function putInOrder(dominoes: Domino[]) {
+function putInOrder(dominoes: Domino[]): Domino[] {
   for (let i: number = 1; i < dominoes.length; i++) {
     while (dominoes[i - 1].values[1] !== dominoes[i].values[0]) {
       let removedDominos : Domino[] = dominoes.splice(i, 1);
