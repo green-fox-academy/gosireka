@@ -3,14 +3,11 @@
 // divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
 
 function sumDigits(n: number): number {
-  let sum = 0;
   if (n / 10 < 1) {
-    sum += n;
+    return n;
   } else {
-    sum += n % 10;
-    sum += sumDigits(Math.floor(n / 10));
+   return n % 10 + sumDigits(Math.floor(n / 10));
   }
-  return sum;
 }
 
-console.log(sumDigits(11235));
+console.log(sumDigits(17));
