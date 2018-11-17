@@ -4,15 +4,13 @@
 // number of "ears" in the bunny line 1, 2, ... n (without loops or multiplication).
 
 function bunnyEarCounter(n: number) : number{
-  let sumOfEars = 0;
   if (n === 0) {
     return 0;
   } else if (n % 2 !== 0){
-    sumOfEars += 2 + bunnyEarCounter(n-1);
+    return 2 + bunnyEarCounter(n-1);
   } else {
-    sumOfEars += 3 + bunnyEarCounter(n-1);
+    return 3 + bunnyEarCounter(n-1);
   }
-  return sumOfEars;
 }
 
 console.log(bunnyEarCounter(4));
