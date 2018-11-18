@@ -5,23 +5,23 @@ const ctx = canvas.getContext('2d');
 
 // DO NOT TOUCH THE CODE ABOVE THIS LINE
 
-function drawLine(fromPoint, toPoint) {
+function drawLine(fromPoint, toPoint): void {
   ctx.beginPath();
   ctx.moveTo(fromPoint[0], fromPoint[1]);
   ctx.lineTo(toPoint[0], toPoint[1]);
   ctx.stroke();
 }
 
-function innerRadiusFromOuterRadius(outerRadius: number) {
+function innerRadiusFromOuterRadius(outerRadius: number): number {
   return Math.sqrt(3) / 2 * outerRadius;
 
 }
 
-function drawHexagon(x: number, y: number, size: number) {
-  let aPoint: number[] = [x , y];
-  let bPoint: number[] = [x + size , y];
+function drawHexagon(x: number, y: number, size: number): void {
+  let aPoint: number[] = [x, y];
+  let bPoint: number[] = [x + size, y];
   let cPoint: number[] = [x + size + size / 2, y + innerRadiusFromOuterRadius(size)];
-  let dPoint: number[] = [x + size , y + innerRadiusFromOuterRadius(size) + innerRadiusFromOuterRadius(size)];
+  let dPoint: number[] = [x + size, y + innerRadiusFromOuterRadius(size) + innerRadiusFromOuterRadius(size)];
   let ePoint: number[] = [x, y + innerRadiusFromOuterRadius(size) + innerRadiusFromOuterRadius(size)];
   let fPoint: number[] = [x - size / 2, y + innerRadiusFromOuterRadius(size)];
 
@@ -43,7 +43,7 @@ function drawHexagons(x: number, y: number, size: number) {
     drawHexagons(x + size, y + innerRadiusFromOuterRadius(size) / 3 * 2, size / 3);
     drawHexagons(x + size / 3 * 2, y + innerRadiusFromOuterRadius(size) / 3 * 4, size / 3);
     drawHexagons(x, y + innerRadiusFromOuterRadius(size) / 3 * 4, size / 3);
-    drawHexagons(x - size/3, y + innerRadiusFromOuterRadius(size) / 3 * 2, size / 3);
+    drawHexagons(x - size / 3, y + innerRadiusFromOuterRadius(size) / 3 * 2, size / 3);
   }
 }
 
