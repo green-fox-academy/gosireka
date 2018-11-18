@@ -33,7 +33,7 @@ function drawHexagon(x: number, y: number, size: number): void {
   drawLine(fPoint, aPoint);
 }
 
-function drawHexagons(x: number, y: number, size: number) {
+function drawHexagons(x: number, y: number, size: number) : void{
   if (size <= 2) {
     return;
   } else {
