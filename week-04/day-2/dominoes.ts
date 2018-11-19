@@ -19,8 +19,7 @@ let dominoes = initializeDominoes();
 function putInOrder(dominoes: Domino[]): Domino[] {
   for (let i: number = 1; i < dominoes.length; i++) {
     while (dominoes[i - 1].values[1] !== dominoes[i].values[0]) {
-      let removedDominos: Domino[] = dominoes.splice(i, 1); 
-      dominoes.push(removedDominos[0]); 
+      dominoes.push(...dominoes.splice(i, 1));
     }
   }
   return dominoes;
@@ -29,7 +28,7 @@ function putInOrder(dominoes: Domino[]): Domino[] {
 putInOrder(dominoes);
 
 function print(dominoes: Domino[]): void {
-  dominoes.forEach(function (value: Domino) { 
+  dominoes.forEach(function (value: Domino) {
     console.log(value);
   });
 }
