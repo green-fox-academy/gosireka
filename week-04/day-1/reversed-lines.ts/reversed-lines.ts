@@ -12,16 +12,21 @@ function readFromFile(fileName: string): string {
 }
 
 function reverseLines(fileName: string): string {
-  const fileContent = readFromFile(fileName);
+  const fileContent: string = readFromFile(fileName);
   let lines: string[] = fileContent.split('\n');
   let newString: string = '';
-  for (let i: number = 0; i < lines.length; i++) {
-    for (let j: number = lines[i].length - 1; j >= 0; j--) {
-      newString = newString.concat(lines[i].charAt(j));
+  if (readFromFile(fileName) === null) {
+    console.log("Read from file was not successful");
+  } else {
+    for (let i: number = 0; i < lines.length; i++) {
+      for (let j: number = lines[i].length - 1; j >= 0; j--) {
+        newString = newString.concat(lines[i].charAt(j));
+      }
+      newString = newString.concat('\n');
     }
-    newString = newString.concat('\n');
+    return newString;
   }
-  return newString;
+  
 }
 
 console.log(reverseLines('reversed-lines.txt'));
