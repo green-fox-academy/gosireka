@@ -24,7 +24,5 @@ export class Sharpie {
 
 let sharpie1 = new Sharpie('red', 10.1);
 
-
-
 sharpie1.use();
 
