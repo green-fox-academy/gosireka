@@ -14,11 +14,17 @@ function readFromFile(fileName: string): string {
 function decryptsFile(fileName: string): string {
   const fileContent: string = readFromFile(fileName);
   let newString: string = '';
-  for (let i: number = 0; i < fileContent.length; i++) {
-    if( i % 2 === 0){
-      newString = newString.concat(fileContent.charAt(i));
+
+  if (readFromFile(fileName) === null) {
+    console.log('Read from file was not successful');
+  } else {
+    for (let i: number = 0; i < fileContent.length; i++) {
+      if (i % 2 === 0) {
+        newString = newString.concat(fileContent.charAt(i));
+      }
     }
   }
+
   return newString;
 }
 
