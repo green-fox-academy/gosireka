@@ -11,7 +11,7 @@ import { Sharpie } from './sharpie';
 class SharpieSet {
   sharpieSet: Sharpie[] = [];
 
-  addSharpie(sharpie: Sharpie){
+  addSharpie(sharpie: Sharpie): void {
     this.sharpieSet.push(sharpie);
   }
 
@@ -34,17 +34,17 @@ class SharpieSet {
 }
 
 function initializeSharpies(): Sharpie[] {
- return [
-  new Sharpie('red', 2, 0),
-  new Sharpie('blue', 2, 10),
-  new Sharpie('yellow', 1.5),
-  new Sharpie('green', 1.5, 0)
- ]
+  return [
+    new Sharpie('red', 2, 0),
+    new Sharpie('blue', 2, 10),
+    new Sharpie('yellow', 1.5),
+    new Sharpie('green', 1.5, 0)
+  ]
 }
 
-let sharpieSet= new SharpieSet;
+let sharpieSet = new SharpieSet();
 
-for (let i = 0; i < initializeSharpies().length; i++) {
+for (let i: number = 0; i < initializeSharpies().length; i++) {
   sharpieSet.addSharpie(initializeSharpies()[i]);
 }
 
@@ -56,4 +56,3 @@ console.log('-----------');
 
 sharpieSet.removeTrash();
 console.log(sharpieSet);
-
