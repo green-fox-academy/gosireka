@@ -1,33 +1,33 @@
 export { };
-import {Flyable} from './flyable';
+import { Flyable } from './flyable';
 
 abstract class Animal {
   protected name: string;
   protected age: number;
   protected gender: string;
-  constructor(name: string, age? : number){
+  constructor(name: string, age?: number) {
     this.name = name;
     this.age = age;
   }
-  getName() {
+  getName(): string {
     return this.name;
   }
-  abstract breed();
+  abstract breed(): void;
 }
 
-export class Bird extends Animal implements Flyable{
+export class Bird extends Animal implements Flyable {
   hasWings: boolean = true;
   numberOfLegs: number = 2;
   breed(): string {
     return 'laying eggs';
   }
-  takeOff(){
+  takeOff(): string {
     return 'The bird is taking off';
   }
-  fly(){
+  fly(): string {
     return 'The bird is flying';
   }
-  land(){
+  land(): string {
     return 'The bird is landing';
   }
 }
