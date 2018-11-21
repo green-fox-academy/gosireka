@@ -1,30 +1,30 @@
-import {Flyable} from './flyable';
+import { Flyable } from './flyable';
 
 abstract class Vehicle {
   protected color: string;
   protected type: string;
   protected age: number;
-  constructor(color: string, type: string, age: number){
+  constructor(color: string, type: string, age: number) {
     this.color = color;
     this.type = type;
     this.age = age;
   }
-  getColor(){
+  getColor(): string {
     return this.color;
   }
-  getType(){
+  getType(): string {
     return this.type;
   }
 }
 
-export class Helicopter extends Vehicle implements Flyable{
-  land(){
+export class Helicopter extends Vehicle implements Flyable {
+  land(): string {
     return 'The helicopter is landing';
   }
-  fly(){
+  fly(): string {
     return 'The helicopter is flying';
   }
-  takeOff(){
+  takeOff(): string {
     return 'The helicopter is taking off';
   }
 }
