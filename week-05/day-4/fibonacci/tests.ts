@@ -7,7 +7,7 @@ test('check input type: integer positive number', t => {
 })
 
 test('check input type: integer negative', t => {
-  t.equal(fibonacci(-2), 0);
+  t.equal(fibonacci(-2), undefined);
   t.end();
 })
 
@@ -22,6 +22,6 @@ test('check input type: null', t => {
 })
 
 test('check input type: undefined', t => {
-  t.equal(fibonacci(undefined), 0);
+  t.equal(fibonacci(undefined), undefined);
   t.end();
 })
