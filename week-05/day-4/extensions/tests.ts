@@ -58,7 +58,7 @@ test('is vowel: u', function (t: any): any {
   t.end();
 });
 
-test("is vowel: k", function(t: any): any {
+test("is vowel: k", function (t: any): any {
   t.notOk(isVowel("k"));
   t.end();
 });
@@ -68,22 +68,32 @@ test('is vowel: E', function (t: any): any {
   t.end();
 });
 
-test('translate: bemutatkozik', function (t: any): any {
+test('translate: bemutatkozik', t => {
   t.equal(translate('bemutatkozik'), 'bevemuvutavatkovozivik');
   t.end();
 });
 
-test('translate: lagopus', function (t: any): any {
+test('translate: lagopus', t => {
   t.equal(translate('lagopus'), 'lavagovopuvus');
   t.end();
 });
 
-test('translate: alma', function (t: any): any {
+test('translate: alma', t => {
   t.equal(translate('alma'), 'avalmava');
   t.end();
 });
 
 test('translate: kecske', function (t: any): any {
   t.equal(translate('kecske'), 'kevecskeve');
+  t.end();
+});
+
+test('translate: txt', function (t: any): any {
+  t.equal(translate('txt'), 'txt');
+  t.end();
+});
+
+test('translate: ""', function (t: any): any {
+  t.equal(translate(''), '');
   t.end();
 });

@@ -31,12 +31,12 @@ export function isVowel(character: string): boolean {
 }
 
 export function translate(hungarian: string): string {
-  let teve = hungarian;
-  let length = teve.length;
+  let teve: string = hungarian;
+  let length: number = teve.length;
   let checkedVowels: string[] = [];
 
-  for (let i = 0; i < length; i++) {
-    let c = teve[i];
+  for (let i: number = 0; i < length; i++) {
+    let c: string = teve[i];
     if (isVowel(c) && checkedVowels.indexOf(c) === -1) {
       teve = teve.split(c).join(`${c}v${c}`);
       i += 2;
