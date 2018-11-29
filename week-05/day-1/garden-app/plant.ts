@@ -1,17 +1,16 @@
-export class Plant {
+export abstract class Plant {
   protected waterAmount: number;
   protected color: string;
   protected needWater: boolean;
   protected type: string;
 
-  constructor(color: string, type: string = 'unknown') {
+  constructor(color: string) {
     this.color = color;
-    this.type = type;
     this.waterAmount = 0;
     this.needWater = true;
   }
-  getNeedWater(): string{
-    if(this.needWater === true){
+  getNeedWater(): string {
+    if (this.needWater === true) {
       return 'needs water';
     } else {
       return 'does not need water';
@@ -24,7 +23,7 @@ export class Plant {
       console.log('The plant does not need water')
     }
   }
-  info(){
+  info(): void {
     console.log(`The ${this.color} ${this.type} ${this.getNeedWater()}`);
   }
 }
