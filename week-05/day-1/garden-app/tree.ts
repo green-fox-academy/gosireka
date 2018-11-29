@@ -1,6 +1,5 @@
 import { Plant } from './plant';
 export class Tree extends Plant {
-
   constructor(color: string) {
     super(color);
     this.type = 'Tree';
@@ -15,8 +14,8 @@ export class Tree extends Plant {
     }
 
   }
-  checkNeed(): boolean{
-    if(this.waterAmount < 10){
+  checkNeed(): boolean {
+    if (this.waterAmount < 10) {
       return true;
     } else {
       return false;
