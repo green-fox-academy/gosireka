@@ -5,9 +5,9 @@ export class Flower extends Plant {
     super(color);
     this.type = 'Flower';
   }
-  
+
   watering(amount: number): void {
-     if (this.needWater === true && this.waterAmount < 5) {
+    if (this.needWater === true && this.waterAmount < 5) {
       this.waterAmount += amount * 0.75;
       this.needWater = this.checkNeed();
     } else {
@@ -15,8 +15,8 @@ export class Flower extends Plant {
     }
   }
 
-  checkNeed(): boolean{
-    if(this.waterAmount < 5){
+  checkNeed(): boolean {
+    if (this.waterAmount < 5) {
       return true;
     } else {
       return false;
