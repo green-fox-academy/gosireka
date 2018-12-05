@@ -1,11 +1,12 @@
-.layout {
+/*--------EXERCISE 5.1------------*/
+
+/* .layout {
   display: flex;
   margin: 0 auto;
   width: 500px;
   height: 700px;
   flex-wrap: wrap;
   border: 1px solid black;
-  
 }
 
 .header {
@@ -47,8 +48,64 @@
   height: 50px;
   background-color: black;
   margin: 10px;
+}
 
+.footer {
+  width: 100%;
+  height: 15%;
+  background-color: #1800FE;
+} */
 
+/*--------EXERCISE 5.2---------*/
+.layout {
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  height: 700px;
+  flex-wrap: wrap;
+  border: 1px solid black;
+}
+
+.header {
+  width: 100%;
+  height: 15%;
+  background-color: #05FFFF;
+}
+.contents {
+  display: flex;
+  width: 100%;
+  height: 70%;
+  justify-content: space-between;
+}
+
+.sidebar {
+  width: 100px;
+  height: 100%;
+}
+
+.left {
+  background-color: #FEA500;
+}
+
+.right {
+  background-color: #81007F;
+}
+
+.main-content {
+  display: flex;
+  background-color: #FE0000;
+  width: 40%;
+  height: 100%;
+  margin: 0;
+  justify-content: right;
+  align-items: flex-end;
+}
+
+.fixed-content {
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  margin: 10px;
 }
 
 .footer {
