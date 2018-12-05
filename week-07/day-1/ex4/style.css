@@ -1,0 +1,39 @@
+
+/* ----------EXERCISE 4.1------------*/
+.layout {
+  display: flex;
+  margin: 0 auto;
+  width: 1000px;
+  height: 800px;
+  flex-wrap: wrap;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  background-color: #B02AFF;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-link {
+  list-style: none;
+  height: 70%;
+  width: 100px;
+  background-color: #2BEAFF;
+  margin-left: 10px;
+}
+
+.content {
+  background-color: #FFD629;
+  width: 70%;
+  height: 740px;
+}
+.sidebar {
+  background-color: #51D403;
+  width: 30%;
+  height: 740px;
+}
+
