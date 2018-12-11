@@ -9,14 +9,16 @@ const paragraphs = [
   'A drink is considered "alcoholic" if it contains ethanol, commonly known as alcohol (although in chemistry the definition of "alcohol" includes many other compounds). Beer has been a part of human culture for 8,000 years. In many countries, imbibing alcoholic drinks in a local bar or pub is a cultural tradition.'
 ]
 const imageList = document.querySelectorAll('.pic');
-const imageButtonList = document.querySelectorAll('#images button')
-let actualImageIndex = 0;
+const imageButtonList = document.querySelectorAll('#images button');
+
 const actualImage = document.querySelector("#actual");
 const actualTitle = document.querySelector('h1');
 const actualParagraphContent = document.querySelector('p');
 
 const leftArrow = document.querySelector('.left');
 const rightArrow = document.querySelector('.right');
+
+//change picture
 
 function setNewSrcToImage(actualImgIndex) {
   let newSrc = imageList[actualImgIndex].getAttribute('src');
@@ -36,12 +38,21 @@ function unHighlight(index) {
   imageButtonList[index].setAttribute('style', 'box-shadow: 0; opacity: 0.5');
 }
 
-function changeParagraphContent(actualImgIndex){
+function changeParagraphContent(actualImgIndex) {
   let newParagraphContent = paragraphs[actualImgIndex];
-  
   actualParagraphContent.innerHTML = newParagraphContent;
 }
 
+function changePicture(index) {
+  setNewTitle(index);
+  setNewSrcToImage(index);
+  changeParagraphContent(index);
+  highlightActualPic(index);
+}
+
+let actualImageIndex = 0;
+
+//right arrow 
 rightArrow.onclick = () => {
   if (actualImageIndex !== 7) {
     actualImageIndex++;
@@ -50,12 +61,10 @@ rightArrow.onclick = () => {
     actualImageIndex = 0;
     unHighlight(7);
   }
-  setNewSrcToImage(actualImageIndex);
-  setNewTitle(actualImageIndex);
-  changeParagraphContent(actualImageIndex);
-  highlightActualPic(actualImageIndex);
+  changePicture(actualImageIndex);
 }
 
+//left arrow 
 leftArrow.onclick = () => {
   if (actualImageIndex !== 0) {
     actualImageIndex--;
@@ -64,19 +73,14 @@ leftArrow.onclick = () => {
     actualImageIndex = 7;
     unHighlight(0);
   }
-  setNewSrcToImage(actualImageIndex);
-  setNewTitle(actualImageIndex);
-  changeParagraphContent(actualImageIndex);
-  highlightActualPic(actualImageIndex);
+  changePicture(actualImageIndex);
 }
 
+//select from image buttons
 imageButtonList.forEach((e, index) => {
   e.onclick = () => {
     unHighlight(actualImageIndex);
     actualImageIndex = index;
-    setNewSrcToImage(index);
-    setNewTitle(index);
-    changeParagraphContent(index);
-    highlightActualPic(index);
+    changePicture(index);
   }
 });
