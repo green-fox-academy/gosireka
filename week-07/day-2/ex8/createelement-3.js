@@ -18,20 +18,24 @@ const kids = [
 // 3) Add the article to the pets div.
 
 const pets = document.querySelector('#pets');
+let newKidArticle = document.createElement('article');
 
-kids.forEach(e => {
-  let newKidArticle = document.createElement('article');
-
+function createH3(kid) {
   let newHeading = document.createElement('h3');
-  let ownersName = e.owner;
+  let ownersName = kid.owner;
   newHeading.innerHTML = ownersName;
+  newKidArticle.appendChild(newHeading);
+}
 
+function createParagraph(e) {
   let newParagraph = document.createElement('p');
   let petName = e.petName;
   newParagraph.innerHTML = petName;
-
-  newKidArticle.appendChild(newHeading);
   newKidArticle.appendChild(newParagraph);
+}
 
+kids.forEach(e => {
+  createH3(e);
+  createParagraph(e);
   pets.appendChild(newKidArticle);
 });
