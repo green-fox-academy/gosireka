@@ -8,17 +8,17 @@ const paragraphs = [
   'The shape of the snowflake is determined broadly by the temperature and humidity at which it is formed. Rarely, at a temperature of around −2 °C (28 °F), snowflakes can form in threefold symmetry — triangular snowflakes. The most common snow particles are visibly irregular, although near-perfect snowflakes may be more common in pictures because they are more visually appealing.',
   'A drink is considered "alcoholic" if it contains ethanol, commonly known as alcohol (although in chemistry the definition of "alcohol" includes many other compounds). Beer has been a part of human culture for 8,000 years. In many countries, imbibing alcoholic drinks in a local bar or pub is a cultural tradition.'
 ]
-const imageList = document.querySelectorAll('.pic');
-const imageButtonList = document.querySelectorAll('#images button');
+let imageList = document.querySelectorAll('.pic');
+let imageButtonList = document.querySelectorAll('#images button');
 
-const actualImage = document.querySelector("#actual");
-const actualTitle = document.querySelector('h1');
-const actualParagraphContent = document.querySelector('p');
+let actualImage = document.querySelector("#actual");
+let actualTitle = document.querySelector('h1');
+let actualParagraphContent = document.querySelector('p');
 
-const leftArrow = document.querySelector('.left');
-const rightArrow = document.querySelector('.right');
+let leftArrow = document.querySelector('.left');
+let rightArrow = document.querySelector('.right');
 
-//change picture
+//change picture and text
 
 function setNewSrcToImage(actualImgIndex) {
   let newSrc = imageList[actualImgIndex].getAttribute('src');
