@@ -2,7 +2,7 @@ const favourite = document.querySelector('#favourite');
 const facts = document.querySelector('#facts');
 let signup = document.querySelector('#signup');
 let loveCats = document.querySelector('#love');
-const buttons = document.querySelector('#button-container');
+const buttons = document.querySelectorAll('button');
 let choseGoldfish = false;
 let catlover = true;
 
@@ -32,10 +32,12 @@ facts.addEventListener('change', () => {
   }
 });
 
-buttons.addEventListener('click', () => {
-  if (!catlover && choseGoldfish) {
-    alert('Sigh, we still added you to the cat facts list');
-  } else {
-    alert('Thank you, you\'ve successfully signed up for cat facts');
-  }
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    if (!catlover && choseGoldfish) {
+      alert('Sigh, we still added you to the cat facts list');
+    } else {
+      alert('Thank you, you\'ve successfully signed up for cat facts');
+    }
+  });  
 });
