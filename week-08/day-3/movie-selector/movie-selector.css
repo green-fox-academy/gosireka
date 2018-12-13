@@ -1,0 +1,38 @@
+body{
+  background-image: url('popcorn.jpg');
+  background-size: cover;
+}
+
+form{
+  width: 600px;
+  height: 250px;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-family: 'Montserrat';
+  color: ghostwhite;
+  text-align: center;
+  margin: 100px auto;
+  padding: 20px 0;
+  border-radius: 5px;
+}
+
+select{
+  font-size: 16px;
+  margin: 30px 20px;
+  height: 30px;
+  width: 200px;
+  color: rgb(80, 78, 78);
+}
+
+h1{
+  text-transform: uppercase;
+}
+
+h2{
+  text-transform: capitalize;
+}
+
+.selected-title{
+  text-decoration: underline;
+  font-size: 60px;
+  font-family: 'Amatic SC';
+}
