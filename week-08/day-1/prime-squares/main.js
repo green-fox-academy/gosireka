@@ -37,7 +37,7 @@ let timer = setInterval(() => {
     isPrime(divs[divIndex]);
     divIndex++;
   } else {
-    clearTimeout(timer);
+    clearInterval(timer);
   }
 }, 100);
 
