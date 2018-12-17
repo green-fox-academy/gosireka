@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cocktails</title>
+  <link rel="stylesheet" type="text/css" href="./static/style.css">
+</head>
+
+<body>
+  <h1><a href="/">Cocktails: </a></h1>
+  <ul>
+    <% list.forEach((item, index) => { %>
+    <li>
+      <a href="?alcohol=<%= item %>">
+        <%= item %>
+      </a>
+    </li>
+    <% }); %>
+  </ul>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <% cocktails.forEach(cocktail => { %>
+    <tr>
+      <td class="name">
+        <%= cocktail.name %>
+        <% if(!cocktail.isAlcoholic) {%>
+        (non-alcoholic)
+        <% } %>
+        <br>
+        <%= cocktail.contains.join(', ') %>
+      </td>
+      <td class="price">
+        <%= cocktail.price %> Ft
+      </td>
+    </tr>
+    <% }); %>
+  </table>
+
+</body>
+
+</html>
