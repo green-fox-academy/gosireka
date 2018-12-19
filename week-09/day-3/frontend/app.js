@@ -1,11 +1,13 @@
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
 
 const port = 8080;
 
 const app = express();
 
 app.use('/assets', express.static('assets'));
+app.use(bodyParser());
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
@@ -53,6 +55,44 @@ app.get('/appenda', (req, res) => {
   res.json({
     "error": "no appendable word"
   });
+});
+
+const sumUntil = (num) => {
+  if (num === 0) {
+    return 0;
+  } else {
+    return (num + sumUntil(num - 1));
+  }
+}
+
+const factor = (num) => {
+  if (num === 1) {
+    return 1;
+  } else {
+    return (num * factor(num - 1));
+  }
+}
+
+app.post('/dountil/:action', (req, res) => {
+  const until = req.body.until;
+  const action = req.params.action;
+  if (req.body.until) {
+    if (action === 'sum') {
+      const sumResult = sumUntil(until);
+      res.json({
+        "result": sumResult
+      });
+    } else {
+      const factorResult = factor(until);
+      res.json({
+        "result": factorResult
+      });
+    }
+  } else {
+    res.json({
+      "error": "Please provide a number!"
+    })
+  }
 });
 
 app.listen(port, () => {
