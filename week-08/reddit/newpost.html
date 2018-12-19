@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Reddit</title>
+  <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100i,300" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="reddit.css">
+</head>
+
+<body>
+  <div id="header">
+
+    <h1 id="title">
+      <button id="icon"></button>
+      Snow 
+      <p>Post to /r/snow</p>
+    </h1>
+  </div>
+  <div id="content">
+    <form>
+      <label for title id="input-title" >Title</label><br>
+      <textarea name="title" required></textarea> <br>
+      <label for url id="input-url">URL</label><br>
+      <input type="text" name="url" required>
+      <button id="submit-button">Submit</button>
+    </form>
+  </div>
+
+  <script src="newpost.js"></script>
+</body>
+
+</html>
