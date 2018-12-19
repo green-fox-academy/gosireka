@@ -28,8 +28,6 @@ app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
 
-
-
 const isVowel = (character) => {
   let lowerCaseChar = character.toLowerCase();
   return ['a', 'á', 'u', 'ú', 'ü', 'ű', 'o', 'ó', 'ö', 'ő', 'e', 'é', 'i', 'í'].some(vowel => vowel === lowerCaseChar);
