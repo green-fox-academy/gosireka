@@ -13,10 +13,10 @@ app.get('/', (req, res) => {
 
 app.get('/doubling', (req, res) => {
   let input = req.query.input;
-  if(input){
+  if (input) {
     res.send({
       "received": input,
-      "result" : input * 2
+      "result": input * 2
     });
   } else {
     res.send({
@@ -28,7 +28,7 @@ app.get('/doubling', (req, res) => {
 app.get('/greeter', (req, res) => {
   let name = req.query.name;
   let title = req.query.title;
-  if(name && title){
+  if (name && title) {
     res.send({
       "welcome_message": `Oh, hi there ${name}, my dear student!`,
     });
@@ -37,6 +37,22 @@ app.get('/greeter', (req, res) => {
       "error": "Please provide a name!"
     });
   }
+});
+
+app.get('/appenda/:appendable', (req, res) => {
+  let word = req.params.appendable;
+  if (word) {
+    res.json({
+      "appended": word + 'a'
+    });
+  }
+});
+
+app.get('/appenda', (req, res) => {
+  res.status(404);
+  res.json({
+    "error": "no appendable word"
+  });
 });
 
 app.listen(port, () => {
