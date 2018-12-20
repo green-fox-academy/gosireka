@@ -50,8 +50,7 @@ app.get('/appenda/:appendable', (req, res) => {
 });
 
 app.get('/appenda', (req, res) => {
-  res.status(404);
-  res.json({
+  res.status(404).json({
     "error": "no appendable word"
   });
 });
