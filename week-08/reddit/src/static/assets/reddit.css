@@ -34,7 +34,6 @@ form{
   height: 30%;
   padding: 10px;
   background-color: snow;
-  
 }
 
 textarea{
@@ -58,7 +57,6 @@ input{
   font-size: 25px;
   padding: 20px;
 }
-
 
 #title p{
   font-size: 15px;
@@ -113,6 +111,12 @@ button{
   font-family: 'Lato';
   font-weight: '100i';
   z-index: 1;
+}
+
+#content h1,
+#content a,
+#content h2{
+  font-weight: lighter;
 }
 
 #posts{
@@ -290,6 +294,7 @@ button{
   background-color: rgba(124, 190, 216, 0.589);
   padding: 8px;
   box-shadow: 3px 2px 4px rgb(189, 183, 183);
+  font-weight: lighter;
 }
 
 #info h3{

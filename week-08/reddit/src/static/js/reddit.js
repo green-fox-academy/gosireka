@@ -1,16 +1,13 @@
-const base_url = 'http://secure-reddit.herokuapp.com/simple';
+'use strict';
 
 const xhr = new XMLHttpRequest();
-const icon = document.querySelector('#icon');
-icon.addEventListener('click', ()=>{
-  window.location.replace('file:///Users/reka/Documents/greenfox/gosireka/week-08/reddit/src/reddit.html');
-});
 
-xhr.open('GET', `${base_url}/posts`);
+xhr.open('GET', `/posts`);
 
 xhr.onload = () => {
   if (xhr.status === 200) {
     const response = JSON.parse(xhr.responseText);
+    console.log(response);
     createPosts(response);
   }
 }
@@ -19,8 +16,8 @@ xhr.send();
 const createPosts = (response) => {
   const postContainer = document.querySelector('#posts');
 
-  response.posts.forEach(post => {
-    newPost = document.createElement('div');
+  response.forEach(post => {
+    const newPost = document.createElement('div');
     newPost.setAttribute('class', 'post');
     newPost.setAttribute('data-id', post.id);
     postContainer.appendChild(newPost);
@@ -78,7 +75,7 @@ const createScore = (newPost, post) => {
 
 const upVote = (postID) => {
   const upvoteReq = new XMLHttpRequest;
-  upvoteReq.open('PUT', `${base_url}/posts/${postID}/upvote`);
+  upvoteReq.open('PUT', `/posts/${postID}/upvote`);
   upvoteReq.setRequestHeader('Accept', 'application/json');
   upvoteReq.onload = () => {
     if (xhr.status === 200) {
@@ -93,7 +90,7 @@ const upVote = (postID) => {
 
 const downVote = (postID) => {
   const downvoteReq = new XMLHttpRequest;
-  downvoteReq.open('PUT', `${base_url}/posts/${postID}/downvote`);
+  downvoteReq.open('PUT', `/posts/${postID}/downvote`);
   downvoteReq.setRequestHeader('Accept', 'application/json');
   downvoteReq.onload = () => {
     if (xhr.status === 200) {
@@ -117,15 +114,14 @@ const createTitle = (rightDiv, post) => {
 const createDate = (rightDiv, post) => {
   let newDate = document.createElement('h2');
   newDate.setAttribute('class', 'date');
-  console.log(post);
-  newDate.textContent = `Submitted: ${new Date(post.timestamp).toLocaleDateString('en-US')}`;
+  newDate.textContent = `Submitted: ${new Date(post.timestamp * 1000).toLocaleDateString('en-US')}`;
   rightDiv.appendChild(newDate);
 }
 
 const createUser = (rightDiv, post) => {
   let newUser = document.createElement('h2');
   newUser.setAttribute('class', 'user');
-  if (post.user === null) {
+  if (post.user === undefined) {
     newUser.textContent = 'by anonymus';
   } else {
     newUser.textContent = `by ${post.user}`;
@@ -148,3 +144,8 @@ const createRemove = (rightDiv) => {
   newRemoveLink.textContent = 'Remove';
   rightDiv.appendChild(newRemoveLink);
 }
+
+const newPostButton = document.querySelector("#submit");
+newPostButton.addEventListener('click', () => {
+  window.location.replace('/newpost');
+});

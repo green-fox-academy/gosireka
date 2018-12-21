@@ -1,10 +1,15 @@
-const base_url = 'http://secure-reddit.herokuapp.com/simple';
+'use strict';
 
 const xhr = new XMLHttpRequest();
 const submit = document.querySelector('#submit-button');
 let title = document.querySelector('textarea');
 let url = document.querySelector('input');
 let form = document.querySelector('form');
+
+const icon = document.querySelector('#icon');
+icon.addEventListener('click', ()=>{
+  window.location.replace('/');
+});
 
 form.addEventListener('submit', () => {
   if(!title.value || !url.value){
@@ -14,12 +19,12 @@ form.addEventListener('submit', () => {
     const body = {
       'title': title.value,
       'url' : url.value,
-      'timestamp': Date.now()
+      'timestamp': Math.floor(Date.now() / 1000)
     }
-    xhr.open('POST', `${base_url}/posts`);
+    xhr.open('POST', `/posts`);
     xhr.onload = () => {
       if (xhr.status === 200) {
-        window.location.replace('file:///Users/reka/Documents/greenfox/gosireka/week-08/reddit/src/reddit.html');
+        window.location.replace('/');
       }
     }
     xhr.setRequestHeader('Accept', 'application/json');
