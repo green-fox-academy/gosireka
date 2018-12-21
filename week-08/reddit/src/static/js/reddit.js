@@ -3,7 +3,7 @@ const base_url = 'http://secure-reddit.herokuapp.com/simple';
 const xhr = new XMLHttpRequest();
 const icon = document.querySelector('#icon');
 icon.addEventListener('click', ()=>{
-  window.location.replace('file:///Users/reka/Documents/greenfox/gosireka/week-08/reddit/reddit.html');
+  window.location.replace('file:///Users/reka/Documents/greenfox/gosireka/week-08/reddit/src/reddit.html');
 });
 
 xhr.open('GET', `${base_url}/posts`);
@@ -15,7 +15,6 @@ xhr.onload = () => {
   }
 }
 xhr.send();
-
 
 const createPosts = (response) => {
   const postContainer = document.querySelector('#posts');
@@ -42,10 +41,10 @@ const createScore = (newPost, post) => {
   newScoreDiv.setAttribute('class', 'score-div');
   let newScore = document.createElement('h1');
   let newUp = document.createElement('img');
-  newUp.setAttribute('src', './arrows/upvote.png');
+  newUp.setAttribute('src', './static/assets/images/arrows/upvote.png');
   newUp.setAttribute('class', 'upvote');
   let newDown = document.createElement('img');
-  newDown.setAttribute('src', './arrows/downvote.png');
+  newDown.setAttribute('src', './static/assets/images/arrows/downvote.png');
   newDown.setAttribute('class', 'downvote');
   newScore.setAttribute('class', 'score');
   newScore.textContent = post.score;
@@ -55,22 +54,22 @@ const createScore = (newPost, post) => {
   newPost.appendChild(newScoreDiv);
   newUp.addEventListener('click', () => {
     if (newUp.getAttribute('class') === 'upvote' && newDown.getAttribute('class') === 'downvoted') {
-      newDown.setAttribute('src', './arrows/downvote.png');
+      newDown.setAttribute('src', './static/assets/images/arrows/downvote.png');
       newDown.setAttribute('class', 'downvote');
       upVote(post.id);
     } else if (newUp.getAttribute('class') === 'upvote') {
-      newUp.setAttribute('src', './arrows/upvoted.png');
+      newUp.setAttribute('src', './static/assets/images/arrows/upvoted.png');
       newUp.setAttribute('class', 'upvoted');
       upVote(post.id);
     }
   });
   newDown.addEventListener('click', () => {
     if (newDown.getAttribute('class') === 'downvote' && newUp.getAttribute('class') === 'upvoted') {
-      newUp.setAttribute('src', './arrows/upvote.png');
+      newUp.setAttribute('src', './static/assets/images/arrows/upvote.png');
       newUp.setAttribute('class', 'upvote');
       downVote(post.id);
     } else if (newDown.getAttribute('class') === 'downvote') {
-      newDown.setAttribute('src', './arrows/downvoted.png');
+      newDown.setAttribute('src', './static/assets/images/arrows/downvoted.png');
       newDown.setAttribute('class', 'downvoted');
       downVote(post.id);
     }
@@ -149,4 +148,3 @@ const createRemove = (rightDiv) => {
   newRemoveLink.textContent = 'Remove';
   rightDiv.appendChild(newRemoveLink);
 }
-

@@ -19,7 +19,7 @@ form.addEventListener('submit', () => {
     xhr.open('POST', `${base_url}/posts`);
     xhr.onload = () => {
       if (xhr.status === 200) {
-        window.location.replace('file:///Users/reka/Documents/greenfox/gosireka/week-08/reddit/reddit.html');
+        window.location.replace('file:///Users/reka/Documents/greenfox/gosireka/week-08/reddit/src/reddit.html');
       }
     }
     xhr.setRequestHeader('Accept', 'application/json');
