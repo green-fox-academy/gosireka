@@ -21,17 +21,62 @@ app.get('/', (req, res) => {
 });
 
 const getAllBooks = 'SELECT book_name, aut_name, cate_descrip, pub_name, book_price FROM ((book_mast INNER JOIN author ON author.aut_id = book_mast.aut_id) INNER JOIN category ON book_mast.cate_id = category.cate_id) INNER JOIN publisher ON book_mast.pub_id = publisher.pub_id;';
+const getBooksByCategory = 'SELECT book_name, aut_name, cate_descrip, pub_name, book_price FROM ((book_mast INNER JOIN author ON author.aut_id = book_mast.aut_id) INNER JOIN category ON book_mast.cate_id = category.cate_id) INNER JOIN publisher ON book_mast.pub_id = publisher.pub_id WHERE category.cate_descrip = ?;';
+const getBooksByPublisher = 'SELECT book_name, aut_name, cate_descrip, pub_name, book_price FROM ((book_mast INNER JOIN author ON author.aut_id = book_mast.aut_id) INNER JOIN category ON book_mast.cate_id = category.cate_id) INNER JOIN publisher ON book_mast.pub_id = publisher.pub_id WHERE publisher.pub_name = ?;';
+const getBooksByCategoryAndPublisher = 'SELECT book_name, aut_name, cate_descrip, pub_name, book_price FROM ((book_mast INNER JOIN author ON author.aut_id = book_mast.aut_id) INNER JOIN category ON book_mast.cate_id = category.cate_id) INNER JOIN publisher ON book_mast.pub_id = publisher.pub_id WHERE category.cate_descrip = ? && publisher.pub_name = ?;';
 
 app.get('/books', (req, res) => {
 
-  conn.query(getAllBooks, (err, data) => {
-    if (err) {
-      console.log(err.message);
-      res.status(500).send();
-      return;
-    }
-    res.json(data);
-  });
+  const category = req.query.category;
+  const publisher = req.query.publisher;
+  const catAndPub = [category, publisher];
+
+  if (category && !publisher) {
+    conn.query(getBooksByCategory, category, (err, data) => {
+      if (err) {
+        console.log(err.message);
+        res.status(500).send();
+        return;
+      }
+      else {
+        res.json(data);
+      }
+    });
+  } else if (!category && publisher) {
+    conn.query(getBooksByPublisher, publisher, (err, data) => {
+      if (err) {
+        console.log(err.message);
+        res.status(500).send();
+        return;
+      }
+      else {
+        res.json(data);
+      }
+    });
+  } else if (publisher && category) {
+    conn.query(getBooksByCategoryAndPublisher, catAndPub, (err, data) => {
+      if (err) {
+        console.log(err.message);
+        res.status(500).send();
+        return;
+      }
+      else {
+        res.json(data);
+      }
+    });
+  } else {
+    conn.query(getAllBooks, (err, data) => {
+      if (err) {
+        console.log(err.message);
+        res.status(500).send();
+        return;
+      }
+      else {
+        res.json(data);
+      }
+    });
+  }
+
 });
 
 app.listen(PORT, () => {
