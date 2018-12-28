@@ -25,4 +25,12 @@ window.addEventListener('scroll', () => {
   if (window.scrollY + window.innerHeight >= container.clientHeight - scrollThreshold) {
     createTenBox();
   }
+  if (window.scrollY <= scrollThreshold) {
+    for (let i = 0; i < 10; i++) {
+      const newDiv = document.createElement('div');
+      newDiv.setAttribute('class', 'box');
+      newDiv.setAttribute('style', `background-color: ${getRandomColor()}`)
+      container.insertBefore(newDiv, container.childNodes[0]);
+    }
+  }
 });
