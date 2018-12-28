@@ -1,0 +1,32 @@
+body {
+  display: flex;
+  width: 100%;
+  height: 200px;
+}
+
+ul{
+  width: 150px; 
+  height: 150px; 
+  border: 1px solid black; 
+  font-size: 30px;
+  display: flex;
+  padding: 0;
+  margin: 0 20px;
+  flex-wrap: wrap;
+  align-items: center;
+  overflow: hidden;
+}
+
+li {
+  list-style: none;
+  width: 100%;
+  padding-left: 10px;
+}
+
+ul button {
+  width: 100%;
+  height: 25%;
+  border: 0.5px solid black;
+  font-size: 28px;
+  background-color: cornflowerblue;
+}
