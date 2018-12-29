@@ -9,7 +9,6 @@ button.onclick = () => {
   let searchedName = document.querySelector('input').value;
   const xhr = new XMLHttpRequest();
   xhr.open('GET', `${BASE_URL}/people/?search=${searchedName}`);
-
   xhr.onload = () => {
     if (xhr.status === 200) {
       const response = JSON.parse(xhr.responseText);
@@ -22,8 +21,22 @@ button.onclick = () => {
   xhr.send();
 }
 
+const resetRightBox = () => {
+  rightBox.innerHTML = '';
+}
+
 const resetLeftBox = () => {
   leftBox.innerHTML = '';
+}
+
+const createCharacterList = (response) => {
+  let personList = document.createElement('ul');
+  response.results.forEach(person => {
+    let newPersonItem = document.createElement('li');
+    newPersonItem.textContent = person.name;
+    personList.appendChild(newPersonItem);
+  });
+  leftBox.appendChild(personList);
 }
 
 const loadFurtherResults = (url) => {
@@ -41,41 +54,6 @@ const loadFurtherResults = (url) => {
   xhr.send();
 }
 
-const createCharacterList = (response) => {
-  let personList = document.createElement('ul');
-  response.results.forEach(person => {
-    let personName = person.name;
-    let newPersonItem = document.createElement('li');
-    newPersonItem.textContent = personName;
-    personList.appendChild(newPersonItem);
-  });
-  leftBox.appendChild(personList);
-}
-
-const resetRightBox = () => {
-  rightBox.innerHTML = '';
-}
-
-const displayMovieNames = (person) => {
-  let newFilmList = document.createElement('ul');
-  person.films.forEach(film => {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', film);
-    xhr.onload = () => {
-      if (xhr.status === 200) {
-        const response = JSON.parse(xhr.responseText);
-        let newFilmTitle = response.title;
-        let newDate = response.release_date;
-        let newFilm = document.createElement('li');
-        newFilm.textContent = `${newFilmTitle} (${newDate})`;
-        newFilmList.appendChild(newFilm);
-      }
-    }
-    xhr.send();
-  });
-  rightBox.appendChild(newFilmList);
-}
-
 let selectedBefore = null;
 
 leftBox.addEventListener('click', () => {
@@ -83,10 +61,9 @@ leftBox.addEventListener('click', () => {
     selectedBefore.setAttribute('style', 'text-decoration: none; color: snow');
   }
   resetRightBox();
-  let chosePersonName = event.target.textContent;
   event.target.setAttribute('style', 'text-decoration: underline; color: #FCDF2C');
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', `${BASE_URL}/people/?search=${chosePersonName}`);
+  xhr.open('GET', `${BASE_URL}/people/?search=${event.target.textContent}`);
   xhr.onload = () => {
     if (xhr.status === 200) {
       const response = JSON.parse(xhr.responseText);
@@ -96,6 +73,24 @@ leftBox.addEventListener('click', () => {
   xhr.send();
   selectedBefore = event.target;
 });
+
+const displayMovieNames = (person) => {
+  let newFilmList = document.createElement('ul');
+  person.films.forEach(film => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', film);
+    xhr.onload = () => {
+      if (xhr.status === 200) {
+        const response = JSON.parse(xhr.responseText);
+        let newFilm = document.createElement('li');
+        newFilm.textContent = `${response.title} (${response.release_date})`;
+        newFilmList.appendChild(newFilm);
+      }
+    }
+    xhr.send();
+  });
+  rightBox.appendChild(newFilmList);
+}
 
 window.addEventListener('scroll', () => {
   handleScroll();
