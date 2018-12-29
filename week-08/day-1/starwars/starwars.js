@@ -1,5 +1,4 @@
 const BASE_URL = 'https://swapi.co/api';
-
 const button = document.querySelector('button');
 const leftBox = document.querySelector('#left-box');
 const rightBox = document.querySelector('#right-box');
@@ -23,11 +22,11 @@ button.onclick = () => {
   xhr.send();
 }
 
-function resetLeftBox() {
+const resetLeftBox = () => {
   leftBox.innerHTML = '';
 }
 
-function loadFurtherResults(url) {
+const loadFurtherResults = (url) => {
   const xhr = new XMLHttpRequest();
   xhr.open('GET', url);
   xhr.onload = () => {
@@ -42,7 +41,7 @@ function loadFurtherResults(url) {
   xhr.send();
 }
 
-function createCharacterList(response) {
+const createCharacterList = (response) => {
   let personList = document.createElement('ul');
   response.results.forEach(person => {
     let personName = person.name;
@@ -53,12 +52,11 @@ function createCharacterList(response) {
   leftBox.appendChild(personList);
 }
 
-
-function resetRightBox() {
+const resetRightBox = () => {
   rightBox.innerHTML = '';
 }
 
-function displayMovieNames(person) {
+const displayMovieNames = (person) => {
   let newFilmList = document.createElement('ul');
   person.films.forEach(film => {
     const xhr = new XMLHttpRequest();
@@ -81,7 +79,7 @@ function displayMovieNames(person) {
 let selectedBefore = null;
 
 leftBox.addEventListener('click', () => {
-  if(selectedBefore !== null){
+  if (selectedBefore !== null) {
     selectedBefore.setAttribute('style', 'text-decoration: none; color: snow');
   }
   resetRightBox();
@@ -95,19 +93,18 @@ leftBox.addEventListener('click', () => {
       displayMovieNames(response.results[0]);
     }
   }
-  xhr.send(); 
+  xhr.send();
   selectedBefore = event.target;
 });
 
-
-window.addEventListener('scroll', ()=>{
+window.addEventListener('scroll', () => {
   handleScroll();
 });
 
 const search = document.querySelector('#search-box');
 const stickyYPosition = search.offsetTop;
 
-function handleScroll() {
+const handleScroll = () => {
   if (window.pageYOffset >= stickyYPosition) {
     search.classList.add('sticky');
     search.setAttribute('style', 'background-color: black');
