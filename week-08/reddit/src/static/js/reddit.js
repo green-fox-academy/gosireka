@@ -2,12 +2,11 @@
 
 const xhr = new XMLHttpRequest();
 
-xhr.open('GET', `/posts`);
+xhr.open('GET', '/posts');
 
 xhr.onload = () => {
   if (xhr.status === 200) {
     const response = JSON.parse(xhr.responseText);
-    console.log(response);
     createPosts(response);
   }
 }
@@ -15,7 +14,6 @@ xhr.send();
 
 const createPosts = (response) => {
   const postContainer = document.querySelector('#posts');
-
   response.forEach(post => {
     const newPost = document.createElement('div');
     newPost.setAttribute('class', 'post');
