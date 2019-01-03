@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Movie Selector</title>
+  <link rel="stylesheet" type="text/css" href="./static/assets/movie-selector.css">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+
+<body>
+  <form id ="selector">
+    <h1>Movie Selector</h1>
+    <h4>Add new movie <p>HERE</p></h4>
+    <h5>Show movie list</h5>
+    <div>
+      <select id="genre">
+        <option disabled selected>Select a genre</option>
+        <option class="sci-fi">sci-fi</option>
+        <option class="drama">drama</option>
+        <option class="comedy">comedy</option>
+      </select>
+      <select id='title'>
+        <option disabled selected>Select a movie</option>
+
+        <!-- <option class="sci-fi">Moon</option>
+        <option class="sci-fi">2001 Space odessy</option>
+        <option class="sci-fi">Contact</option>
+        <option class="drama">Darkest hour</option>
+        <option class="drama">There will be blood</option>
+        <option class="drama">American beauty</option>
+        <option class="comedy">Airplane!</option>
+        <option class="comedy">Deadpool</option>
+        <option class="comedy">Waynes World</option> -->
+
+      </select>
+    </div>
+    <h2>Your selected movie is : </h2>
+    <div id="selected-movie">
+
+    </div>
+  </form>
+  <script src="./static/js/movie-selector.js"></script>
+</body>
+
+</html>

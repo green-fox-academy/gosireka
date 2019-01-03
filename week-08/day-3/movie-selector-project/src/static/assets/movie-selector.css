@@ -1,0 +1,102 @@
+body{
+  background-image: url('popcorn.jpg');
+  background-size: cover;
+}
+#selector{
+  height: 250px;
+}
+
+#addtitle{
+  height: 400px;
+}
+
+#selector, 
+#addtitle{
+  width: 600px;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-family: 'Montserrat';
+  color: ghostwhite;
+  text-align: center;
+  margin: 100px auto;
+  padding: 20px 0;
+  border-radius: 5px;
+}
+
+#addtitle{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+button{
+  width: 150px;
+  height: 35px;
+  margin: 10px;
+  letter-spacing: 2px;
+  font-family: 'Amatic SC';
+  font-size: 24px;
+  font-weight: bold;
+}
+
+input{
+  width: 90%;
+  font-size: 20px;
+  
+}
+#addtitle select,
+#addtitle label{
+  width: 45%;
+}
+
+#addtitle label{
+  font-size: 26px;
+  letter-spacing: 2px;
+}
+
+
+#addtitle label, 
+input,
+#addtitle select{
+  height: 30px;
+  margin: 10px 0;
+}
+
+select{
+  font-size: 16px;
+  margin: 30px 20px;
+  height: 30px;
+  width: 200px;
+  color: rgb(80, 78, 78);
+}
+
+h1{
+  text-transform: uppercase;
+}
+
+h2{
+  text-transform: capitalize;
+}
+
+h4,
+h5{
+  text-align: right;
+  margin: 5px 20px 0 0;
+ 
+}
+
+h4 p{
+  display: inline;
+}
+
+h4 p:hover,
+h5:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.selected-title{
+  text-decoration: underline;
+  font-size: 60px;
+  font-family: 'Amatic SC';
+}

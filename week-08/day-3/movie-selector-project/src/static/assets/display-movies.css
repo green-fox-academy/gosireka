@@ -1,0 +1,43 @@
+body{
+  background-image: url(movie.jpg);
+  background-size: cover;
+}
+
+h1{
+  text-align: center;
+  color: #f2f2f2d3;
+  font-family: 'Amatic SC';
+  font-size: 50px;
+}
+
+table{
+  width: 75%;
+  margin: 50px auto;
+  font-family: 'Montserrat';
+}
+th{
+  width: 25%;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-family: 'Amatic SC';
+  letter-spacing: 3px;
+  color: #f2f2f2d3;
+}
+tr{
+  background-color: rgba(128, 128, 128, 0.836);
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2d3;
+}
+
+td{
+  padding: 10px 20px;
+}
+
+.remove{
+  text-align: center;
+}
+.remove:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
