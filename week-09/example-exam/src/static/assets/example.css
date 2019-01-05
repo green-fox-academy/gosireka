@@ -25,3 +25,18 @@ label{
 .btn{
   margin: 20px 0;
 }
+table{
+  width: 90%;
+  margin: 10px auto;
+}
+
+thead{
+  width: 60%;
+  margin: 0 auto;
+}
+
+.deleteTd:hover {
+  font-size: 22px;
+  cursor: pointer;
+  font-weight: bold;
+}
