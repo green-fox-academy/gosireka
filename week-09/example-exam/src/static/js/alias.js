@@ -1,17 +1,7 @@
 'use strict';
 
-const xhr = new XMLHttpRequest();
-
-xhr.open('GET', '/');
-
 let responseList = [];
 const container = document.querySelector('#form-container');
-
-xhr.onload = () => {
-  if (xhr.status === 200) {
-    createForm();
-  }
-}
 
 const messageContainer = document.querySelector('#msg');
 let postResponseList = [];
@@ -36,6 +26,7 @@ const createForm = () => {
     postReq.onload = () => {
       const newMsg = document.createElement('p');
       newMsg.setAttribute('style', 'text-align: center');
+      fillTable();
       if (postReq.status === 400) {
         newMsg.innerHTML = 'Your alias is already in use!';
         messageContainer.innerHTML = '';
@@ -100,4 +91,74 @@ const createSubmitButton = (newForm) => {
   container.appendChild(newForm);
 }
 
-xhr.send();
+const tableBody = document.querySelector('tbody');
+
+const fillTable = () => {
+  const getLinksReq = new XMLHttpRequest();
+  getLinksReq.open('GET', '/api/links');
+  getLinksReq.onload = () => {
+    if (getLinksReq.status === 200) {
+      const responseList = JSON.parse(getLinksReq.responseText);
+      tableBody.innerHTML = '';
+      responseList.forEach(record => {
+        drawTableRow(record);
+      });
+    }
+  }
+  getLinksReq.send();
+}
+
+const drawTableRow = (record) => {
+  let newRow = document.createElement('tr');
+  let newAlias = document.createElement('td');
+  newAlias.setAttribute('class', 'aliasTd');
+  newAlias.innerHTML = record.alias;
+  newRow.appendChild(newAlias);
+  let newLink = document.createElement('td');
+  newLink.setAttribute('class', 'linkTd');
+  let newLinkUrl = document.createElement('a');
+  newLinkUrl.setAttribute('href', `/a/${record.alias}`);
+  newLinkUrl.innerHTML = record.url;
+  newLink.appendChild(newLinkUrl);
+  newRow.appendChild(newLink);
+  let newDelete = document.createElement('td');
+  newDelete.setAttribute('class', 'deleteTd');
+  let xDiv = document.createElement('div');
+  xDiv.innerHTML = 'X';
+  newDelete.appendChild(xDiv);
+  newRow.appendChild(newDelete);
+  tableBody.appendChild(newRow);
+  xDiv.addEventListener('click', () => {
+    let deleteForm = document.createElement('form');
+    let newDeleteInput = document.createElement('input');
+    newDeleteInput.setAttribute('type', 'text');
+    newDeleteInput.setAttribute('class', 'deleteInput');
+    newDelete.innerHTML = '';
+    deleteForm.appendChild(newDeleteInput);
+    let deleteSubmit = document.createElement('input');
+    deleteSubmit.setAttribute('class', 'submitInput');
+    deleteSubmit.setAttribute('type', 'submit');
+    deleteForm.appendChild(deleteSubmit);
+    newDelete.appendChild(deleteForm);
+    deleteForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const deleteReq = new XMLHttpRequest();
+      deleteReq.open('DELETE', `/api/links/${record.id}`);
+      deleteReq.setRequestHeader('Accept', 'application/json');
+      deleteReq.setRequestHeader('Content-Type', 'application/json');
+      let deleteBody = {
+        'secretCode': newDeleteInput.value
+      }
+      console.log(record);
+      deleteReq.onload = () => {
+        if (deleteReq.status === 204) {
+          fillTable();
+        }
+      }
+      deleteReq.send(JSON.stringify(deleteBody));
+    });
+  });
+}
+
+createForm();
+fillTable();
