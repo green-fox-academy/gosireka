@@ -102,7 +102,7 @@ const redirectAndIncr = (req, res, data) => {
         res.status(500).send();
         return;
       } else {
-        res.redirect(`https://${redirectUrl}`);
+        res.redirect(redirectUrl);
       }
     });
   }
