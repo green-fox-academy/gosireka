@@ -10,6 +10,17 @@ const selectPrice = document.querySelector('#price');
 const categories = [];
 const publishers = [];
 
+xhr.onload = () => {
+  if (xhr.status === 200) {
+    const response = JSON.parse(xhr.responseText);
+    createFilters(response);
+    response.forEach(book => {
+      createRow(book);
+    });
+  }
+}
+xhr.send();
+
 const createFilters = (response) => {
   response.forEach(book => {
     chooseCategory(book);
@@ -60,17 +71,6 @@ const createRow = (book) => {
   newRow.appendChild(newPrice);
   tableBody.appendChild(newRow);
 }
-
-xhr.onload = () => {
-  if (xhr.status === 200) {
-    const response = JSON.parse(xhr.responseText);
-    createFilters(response);
-    response.forEach(book => {
-      createRow(book);
-    });
-  }
-}
-xhr.send();
 
 const form = document.querySelector("#filters");
 
