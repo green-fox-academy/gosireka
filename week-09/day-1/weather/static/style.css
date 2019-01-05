@@ -1,10 +1,44 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #ECF0F1;
+}
+
 #cities{
   width: 100%;
-  background-color: #ECF0F1;
   font-family: 'Lato';
-  margin: 10px auto;
+  margin: 0 auto;
   padding: 10px;
 }
+
+#city-infos{
+  width: 70%;
+  margin: 100px auto;
+}
+
+.days{
+  width: 100%;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.day-card{
+  width: 18%;
+  background-color: white;
+  border-radius: 10px;
+  margin: 5px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.day-card h3{
+  font-weight: lighter;
+ font-size: 16px;
+}
+
 .city{
   width: 40%;
   margin: 10px auto;
