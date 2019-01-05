@@ -19,7 +19,6 @@ app.set('view engine', 'ejs');
 
 app.use('/static', express.static('static'));
 
-
 app.get('/', (req, res) => {
   let selected = req.query.alcohol;
   if (selected !== undefined) {
@@ -35,7 +34,7 @@ app.get('/', (req, res) => {
   }
 });
 
-function filterCocktails(selected) {
+filterCocktails = (selected) => {
   let newCocktailList = [];
   cocktails.forEach(cocktail => {
     cocktail.contains.forEach(element => {
@@ -50,4 +49,3 @@ function filterCocktails(selected) {
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
-
