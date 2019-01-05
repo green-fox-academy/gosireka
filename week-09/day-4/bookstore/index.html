@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bookstore</title>
+  <link rel="stylesheet" type="text/css" href="./assets/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
 </head>
+
 <body>
-  <h1>Bookstore</h1>
+  <h1><a href='/'>Bookstore</a></h1>
+
+  <form id="filters">
+    <select id="category">
+      <option disabled selected value="-">--Please choose a category--</option>
+    </select>
+    <h4>AND/OR</h4>
+    <select id="publisher">
+      <option disabled selected value="-">--Please choose a publisher--</option>
+    </select>
+    <h4>AND/OR</h4>
+    <select id="price">
+        <option disabled selected value="-">--Please choose a price--</option>
+    </select>
+    <h4>AND</h4>
+    <input id="submit" type="submit" value="search">
+  </form>
   <table>
-    <form id="filters">
-        <select id="category">
-          <option disabled selected value="-">--Please choose a category--</option>
-        </select>
-        <select id="publisher">
-            <option disabled selected value="-">--Please choose a publisher--</option>
-        </select>
-        <select id="price">
-        </select>
-        <input id="submit" type="submit">
-      </form> 
     <thead>
       <tr>
         <th>Title</th>
@@ -35,4 +44,5 @@
   </table>
   <script src="./assets/main.js"></script>
 </body>
+
 </html>
