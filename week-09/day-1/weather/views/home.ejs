@@ -12,8 +12,8 @@
 
 <body>
   <div id="cities">
-    <% forecasts.forEach(city => { %>
-    <div class="city">
+    <% forecasts.forEach((city, index) => { %>
+    <div class="city" id="<%= index %>">
       <div class="city-info">
         <h2>
           <%= city.city %>
