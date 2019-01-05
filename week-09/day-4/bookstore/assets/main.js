@@ -7,6 +7,19 @@ const selectCategory = document.querySelector('#category');
 const selectPublisher = document.querySelector('#publisher');
 const selectPrice = document.querySelector('#price');
 
+selectPrice.addEventListener('change', () => {
+  selectCategory.setAttribute('disabled', 'true');
+  selectPublisher.setAttribute('disabled', 'true');
+});
+
+selectPublisher.addEventListener('change', () => {
+  selectPrice.setAttribute('disabled', 'true');
+});
+
+selectCategory.addEventListener('change', () => {
+  selectPrice.setAttribute('disabled', 'true');
+});
+
 const categories = [];
 const publishers = [];
 
@@ -79,9 +92,10 @@ form.addEventListener('submit', (event) => {
 
   const selectedCategory = selectCategory.value;
   const selectedPublisher = selectPublisher.value;
-  
+  const selectedPrice = selectPrice.value;
+
   const filterXhr = new XMLHttpRequest;
-  if (selectedCategory !== '-' && selectedPublisher === '-') {
+  if (selectedCategory !== '-' && selectedPrice === '-' && selectedPublisher === '-') {
     filterXhr.open('GET', `/books?category=${selectedCategory}`);
     filterXhr.onload = () => {
       if (filterXhr.status === 200) {
@@ -93,7 +107,7 @@ form.addEventListener('submit', (event) => {
       }
     }
     filterXhr.send();
-  } else if (selectedCategory === '-' && selectedPublisher !== '-') {
+  } else if (selectedCategory === '-' && selectedPrice === '-' && selectedPublisher !== '-') {
     filterXhr.open('GET', `/books?publisher=${selectedPublisher}`);
     filterXhr.onload = () => {
       if (filterXhr.status === 200) {
@@ -105,8 +119,32 @@ form.addEventListener('submit', (event) => {
       }
     }
     filterXhr.send();
-  } else {
+  } else if (selectedCategory !== '-' && selectedPrice === '-' && selectedPublisher !== '-') {
     filterXhr.open('GET', `/books?publisher=${selectedPublisher}&category=${selectedCategory}`);
+    filterXhr.onload = () => {
+      if (filterXhr.status === 200) {
+        tableBody.innerHTML = '';
+        const response = JSON.parse(filterXhr.responseText);
+        response.forEach(book => {
+          createRow(book);
+        });
+      }
+    }
+    filterXhr.send();
+  } else if (selectedCategory === '-' && selectedPrice !== '-' && selectedPublisher === '-') {
+    let priceMin = '';
+    let priceMax = '';
+    if (selectedPrice === '0-99') {
+      priceMin = 0;
+      priceMax = 99;
+    } else if (selectedPrice === '100-199') {
+      priceMin = 100;
+      priceMax = 199;
+    } else {
+      priceMin = 200;
+      priceMax = 299;
+    }
+    filterXhr.open('GET', `/books?priceMin=${priceMin}&priceMax=${priceMax}`);
     filterXhr.onload = () => {
       if (filterXhr.status === 200) {
         tableBody.innerHTML = '';
