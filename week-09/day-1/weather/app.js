@@ -72,6 +72,12 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/cities/:id', (req, res) => {
+  res.render('city', {
+    selectedCity: forecasts[req.params.id]
+  });
+});
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
