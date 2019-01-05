@@ -1,0 +1,70 @@
+body{
+  margin: 0;
+  padding: 20px;
+  background-color: #ECF0F1;
+  font-family: 'Quicksand';
+}
+
+#filters, 
+table{
+  box-shadow: 5px 5px #bebdbd80;
+  padding: 10px;
+}
+
+#filters{
+  width: 90%;
+  margin: 0 auto;
+  background-color: snow;
+  display:flex;
+  justify-content: space-around;
+  border-radius: 10px;
+}
+
+table{
+  width: 75%;
+  margin: 30px auto;
+  padding: 20px;
+  border-collapse: collapse;
+}
+
+thead{
+  background-color: black;
+  color: snow;
+  font-weight: bold;
+  font-size: 20px;
+ 
+}
+
+th{
+  padding: 10px;
+}
+
+td{
+  padding: 10px;
+  font-size: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: snow;
+}
+
+tbody tr:hover{
+  background-color: #a3a1a180;
+}
+
+#filters select {
+  font-size: 15px;
+}
+
+input{
+  background-color: #ECF0F1;
+  font-size: 15px;
+}
+
+h1{
+  text-align: center;
+}
+
+h4{
+  margin: 0;
+}
