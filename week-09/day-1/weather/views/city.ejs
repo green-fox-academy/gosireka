@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>City info</title>
+  <link rel="stylesheet" type="text/css" href="../static/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+</head>
+
+<body>
+  <div id="cities">
+    <div id="city-infos">
+      <h1>
+        <%=selectedCity.city %>
+      </h1>
+      <div class="days">
+        <% selectedCity.weather.forEach(day => { %>
+        <div class="day-card">
+          <img src="../static/<%= day.icon %>.png">
+          <h2>
+            <%= day.temp %>˚C </h2>
+          <h3>
+            <%=day.message %>
+          </h3>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
