@@ -40,7 +40,6 @@ const checkAliasInTable = (req, res) => {
     if (err) {
       console.log(err.message);
       res.status(500).send();
-      return;
     } else {
       if (data.length > 0) {
         res.status(400).send();
@@ -58,7 +57,6 @@ const insertIntoTable = (req, res) => {
     if (err) {
       console.log(err.message);
       res.status(500).send();
-      return;
     } else {
       queryByAlias(req, res);
     }
@@ -70,7 +68,6 @@ const queryByAlias = (req, res) => {
     if (err) {
       console.log(err.message);
       res.status(500).send();
-      return;
     } else {
       res.json(data);
     }
@@ -84,7 +81,6 @@ app.get('/a/:alias', (req, res) => {
     if (err) {
       console.log(err.message);
       res.status(500).send();
-      return;
     } else {
       redirectAndIncr(req, res, data)
     }
@@ -100,7 +96,6 @@ const redirectAndIncr = (req, res, data) => {
       if (err) {
         console.log(err.message);
         res.status(500).send();
-        return;
       } else {
         res.redirect(redirectUrl);
       }
@@ -115,7 +110,6 @@ app.get('/api/links', (req, res) => {
     if (err) {
       console.log(err.message);
       res.status(500).send();
-      return;
     } else {
       res.json(data);
     }
@@ -131,7 +125,6 @@ app.delete('/api/links/:id', (req, res) => {
     if (err) {
       console.log(err.message);
       res.status(500).send();
-      return;
     } else {
       checkIdInTable(req, res, data);
     }
@@ -151,7 +144,6 @@ const checkCodeInTable = (req, res) => {
     if (err) {
       console.log(err.message);
       res.status(500).send();
-      return;
     } else {
       removeLinkFromTable(req, res, data);
     }
@@ -166,7 +158,6 @@ const removeLinkFromTable = (req, res, data) => {
       if (err) {
         console.log(err.message);
         res.status(500).send();
-        return;
       } else {
         res.status(204).send();
       }
