@@ -1,0 +1,76 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #313841;
+}
+
+#button-container{
+  margin: 300px auto;
+  width: 30%;
+  justify-content: space-evenly;
+}
+
+button{
+  background-color: #1B242B;
+  border: hidden;
+  color: snow;
+  width: 55px;
+  height: 55px;
+  font-size: 30px;
+  transition: 0.5s;
+}
+
+i{
+  margin: 0;
+  padding: 0;
+}
+
+.button-div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 55px;
+}
+
+button + label {
+  display: none;
+  position: relative;
+}
+
+button:hover + label {
+  display : flex;
+  width: 200px;
+  height: 100%;
+  font-size: 20px;
+  color: snow;
+  line-height: 25px;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover + label::before {
+  content: "";
+  border-left: 10px solid #1B242B;
+  border-top: 10px solid transparent; 
+  border-bottom: 10px solid transparent; 
+  position: absolute;
+  left: 0;
+  width: 0; 
+  height: 0;
+}
+
+button[data-action="delete"]:hover {
+  color: #F34541;
+}
+
+button[data-action="confirm"]:hover {
+  color: #39BA7D;
+}
+
+button[data-action="delete"]:hover + label {
+  background-color: #F34541;
+}
+
+button[data-action="confirm"]:hover + label {
+  background-color: #39BA7D;
+}
