@@ -10,7 +10,7 @@ const displayRandomQuestion = () => {
   xhr.onload = () => {
     if (xhr.status === 200) {
       questionBox.innerHTML = '';
-      const response= JSON.parse(xhr.responseText);
+      const response = JSON.parse(xhr.responseText);
       let newQuestion = document.createElement('h2');
       newQuestion.innerHTML = response.question;
       questionBox.appendChild(newQuestion);
@@ -18,17 +18,24 @@ const displayRandomQuestion = () => {
         let newButton = document.createElement('button');
         newButton.innerHTML = option.answer;
         newButton.addEventListener('click', () => {
-          if (option.is_correct === 1){
-            newButton.setAttribute('style', 'background-color: #26AE60');
-            let scoreBefore = score.textContent;
-            score.textContent = parseInt(scoreBefore) + 1;
+          newButton.setAttribute('style', 'border: 2px inset gray');
+          if (option.is_correct === 1) {
+            
+            setTimeout(() => {
+              newButton.setAttribute('style', 'background-color: #26AE60');
+              let scoreBefore = score.textContent;
+              score.textContent = parseInt(scoreBefore) + 1;
+            }, 1500)
+
           } else {
-            newButton.setAttribute('style', 'background-color: #ED8668');
+            setTimeout(() => {
+              newButton.setAttribute('style', 'background-color: #ED8668');
+            }, 1500)
           }
-          setTimeout(()=> {
+          setTimeout(() => {
             displayRandomQuestion();
-          }, 1500);
-          
+          }, 3000);
+
         });
         questionBox.appendChild(newButton);
       });
