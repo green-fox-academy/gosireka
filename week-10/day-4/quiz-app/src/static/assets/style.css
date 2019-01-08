@@ -37,6 +37,14 @@ button:hover {
   filter: brightness(85%);
 }
 
+button:active {
+  filter: brightness(75%);
+}
+
+button:focus {
+  outline: none;
+}
+
 h2 {
   margin-bottom: 40px;
 }  
