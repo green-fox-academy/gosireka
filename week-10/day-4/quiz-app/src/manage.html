@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Manage questions</title>
+  <link rel="stylesheet" type="text/css" href="./static/assets/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</head>
+
+<body>
+  <div id="manage-container">
+    <form>
+      <h1>Manage question</h1>
+      <div id="manage"></div>
+      <h1>Create a new question</h1>
+      <div id="create">
+        <input type="text" id="question-input" placeholder="Type your question here" required>
+        <h2>Answers</h2>
+        <div class="answer-input">
+          <h2>#1</h2>
+          <input class="input" type="text" placeholder="Type your answer here" required>
+          <input class="radio" type="radio" name="answer" required>
+        </div>
+        <div class="answer-input">
+          <h2>#2</h2>
+          <input class="input" type="text" placeholder="Type your answer here" required>
+          <input class="radio" type="radio" name="answer">
+        </div>
+        <div class="answer-input">
+          <h2>#3</h2>
+          <input class="input" type="text" placeholder="Type your answer here" required>
+          <input class="radio" type="radio" name="answer">
+        </div>
+        <div class="answer-input">
+          <h2>#4</h2>
+          <input class="input" type="text" placeholder="Type your answer here" required>
+          <input class="radio" type="radio" name="answer">
+        </div>
+        <input type="submit" value="Submit" id="submit">
+      </div>
+      <a href="/game">Go back to the game</a>
+      
+    </form>
+  </div>
+  <script src="./static/js/manage.js"></script>
+
+</body>
+
+</html>
