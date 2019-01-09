@@ -1,6 +1,6 @@
 # gosireka
 
-[Green Fox Really Syllabus](https://github.com/green-fox-academy/really-syllabus)
+[:green_heart: Green Fox Really Syllabus :green_heart:](https://github.com/green-fox-academy/really-syllabus)
 
 [github.io Repository](https://github.com/gosireka/gosireka.github.io)
 
