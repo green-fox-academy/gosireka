@@ -6,4 +6,4 @@
 
 [Reka Santha-Gosi github.io website](https://gosireka.github.io/)
 
-[Star Wars api](https://agile-beyond-68665.herokuapp.com/)
+[:movie_camera: Star Wars api :movie_camera:](https://agile-beyond-68665.herokuapp.com/)
