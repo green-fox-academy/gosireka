@@ -19,14 +19,12 @@ const displayRandomQuestion = () => {
         newButton.innerHTML = option.answer;
         newButton.addEventListener('click', () => {
           newButton.setAttribute('style', 'border: 2px inset gray');
-          if (option.is_correct === 1) {
-            
+          if (option.is_correct === 1) { 
             setTimeout(() => {
               newButton.setAttribute('style', 'background-color: #26AE60');
               let scoreBefore = score.textContent;
               score.textContent = parseInt(scoreBefore) + 1;
             }, 1500)
-
           } else {
             setTimeout(() => {
               newButton.setAttribute('style', 'background-color: #ED8668');
@@ -35,7 +33,6 @@ const displayRandomQuestion = () => {
           setTimeout(() => {
             displayRandomQuestion();
           }, 3000);
-
         });
         questionBox.appendChild(newButton);
       });
@@ -43,7 +40,5 @@ const displayRandomQuestion = () => {
   }
   xhr.send();
 }
-
-
 
 displayRandomQuestion();
