@@ -5,7 +5,6 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
 
 app.use('/static', express.static('static'));
 app.use(express.json());
@@ -64,7 +63,7 @@ app.get('/api/questions', (req, res) => {
       console.log(err.message);
       res.status(500).send();
     } else {
-      res.json(data);
+      res.status(200).json(data);
     }
   });
 });
@@ -120,7 +119,13 @@ app.delete('/api/questions/:id', (req, res) => {
       console.log(err.message);
       res.status(500).send();
     } else {
-      deleteAnswers(id, res);
+      if (data.affectedRows === 0) {
+        res.status(404).json({
+          message: 'Wrong id!'
+        });
+      } else{
+        deleteAnswers(id, res);
+      }
     }
   });
 });
@@ -133,11 +138,11 @@ const deleteAnswers = (id, res) => {
       console.log(err.message);
       res.status(500).send();
     } else {
-      res.status(200).send();
+      res.status(200).json({
+        message : 'Successfully deleted!'
+      });
     }
   });
 }
 
-app.listen(PORT, () => {
-  console.log(`listening on port ${PORT}`);
-});
+module.exports = app;
