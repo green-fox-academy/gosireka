@@ -23,9 +23,8 @@ app.get('/', (req, res) => {
 
 const addNewUrl = 'INSERT INTO alias (url, alias, hitcount, secretCode) VALUES (?, ?, 0, ?);';
 
-const checkAlias = 'SELECT alias FROM alias WHERE alias = ?;';
+const checkAlias = 'SELECT * FROM alias WHERE alias = ?;';
 
-const findByAliasQuery = 'SELECT * FROM alias WHERE alias = ?;';
 
 const generateRandomNum = () => {
   return Math.floor(Math.random() * 10000);
@@ -64,7 +63,7 @@ const insertIntoTable = (req, res) => {
 }
 
 const queryByAlias = (req, res) => {
-  conn.query(findByAliasQuery, req.body.alias, (err, data) => {
+  conn.query(checkAlias, req.body.alias, (err, data) => {
     if (err) {
       console.log(err.message);
       res.status(500).send();
@@ -77,7 +76,7 @@ const queryByAlias = (req, res) => {
 const incrHitCount = 'UPDATE alias SET hitcount = hitcount + 1 WHERE alias = ?;';
 
 app.get('/a/:alias', (req, res) => {
-  conn.query(findByAliasQuery, [req.params.alias], (err, data) => {
+  conn.query(checkAlias, [req.params.alias], (err, data) => {
     if (err) {
       console.log(err.message);
       res.status(500).send();

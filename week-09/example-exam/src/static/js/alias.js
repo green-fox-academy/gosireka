@@ -42,7 +42,6 @@ const createForm = () => {
       }
     }
     postReq.send(JSON.stringify(postBody));
-
   });
 }
 
