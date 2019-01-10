@@ -1,13 +1,9 @@
 # gosireka
 
-[Green Fox Really Syllabus](https://github.com/green-fox-academy/really-syllabus)
-
-[Git Lesson Repository](https://github.com/gosireka/git-lesson-repository)
-
-[Hello World Repository](https://github.com/gosireka/hello-world)
-
-[Patchwork Repository](https://github.com/gosireka/patchwork)
+[:green_heart: Green Fox Really Syllabus :green_heart:](https://github.com/green-fox-academy/really-syllabus)
 
 [github.io Repository](https://github.com/gosireka/gosireka.github.io)
 
 [Reka Santha-Gosi github.io website](https://gosireka.github.io/)
+
+[:movie_camera: :sparkles: Star Wars :sparkles: :movie_camera:](https://agile-beyond-68665.herokuapp.com/)
