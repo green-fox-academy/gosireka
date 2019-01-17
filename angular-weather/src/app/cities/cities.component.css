@@ -1,0 +1,40 @@
+#cities{
+  width: 100%;
+  font-family: 'Lato';
+  margin: 0 auto;
+  padding: 10px;
+}
+
+#city-infos{
+  width: 70%;
+  margin: 100px auto;
+}
+.city{
+  width: 40%;
+  margin: 10px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  background-color: white;
+  padding: 30px;
+  cursor: pointer;
+}
+
+.city:hover{
+  width: 42%;
+}
+
+.city-info{
+ width: 33%;
+}
+
+.city-info h3{
+  font-weight: lighter;
+}
+
+img{
+  width: 70px;
+  height: 70px;
+}

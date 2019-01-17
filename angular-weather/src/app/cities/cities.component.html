@@ -1,0 +1,17 @@
+
+<div *ngIf="weather" id="cities">
+  <div *ngFor="let city of weather.list">
+    <div class="city">
+      <div class="city-info">
+        <h2>{{ city.name }}</h2>
+        <h3>{{ city.sys.country }}</h3>
+      </div>
+      <div class="temp-info">
+        <h1>{{ city.main.temp}}˚C</h1>
+      </div>
+      <div class="icon">
+        <img src="http://openweathermap.org/img/w/{{city.weather[0].icon}}.png">
+      </div>
+    </div>
+  </div>
+</div>
