@@ -9,7 +9,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class SearchComponent implements OnInit {
 
   searchForm: FormGroup;
-  submitted: boolean = false;
   searchedCityName: string ='Budapest';
 
   constructor(private formBuilder: FormBuilder) {
@@ -19,7 +18,6 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
     if (this.searchForm.invalid) {
       return;
     }
