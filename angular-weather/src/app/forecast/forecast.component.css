@@ -20,7 +20,7 @@
 .day-card{
   width: 150px;
   font-size: 20px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.507);
   border-radius: 10px;
   margin: 5px;
   padding: 10px;
@@ -28,6 +28,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.day-card:hover{
+  height: 100.3%;
+}
+
+img{
+  width: 70px;
+  height: 70px;
 }
 
 .day-card h3{
