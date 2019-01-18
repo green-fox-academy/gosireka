@@ -2,7 +2,7 @@
   <h2>Search weather by city name!</h2>
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
     <label class="search">
-      <input type="text" formControlName="city" >
+      <input type="text" formControlName="city" placeholder="Budapest">
       <input type="submit" value="search!" [disabled]="searchForm.controls.city.value ===''">
     </label>
   </form>

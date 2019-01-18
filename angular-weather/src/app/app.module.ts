@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CitiesComponent } from './cities/cities.component';
 import { SearchComponent } from './search/search.component';
+import { ForecastComponent } from './forecast/forecast.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CitiesComponent,
-    SearchComponent
+    SearchComponent,
+    ForecastComponent
   ],
   imports: [
     BrowserModule,

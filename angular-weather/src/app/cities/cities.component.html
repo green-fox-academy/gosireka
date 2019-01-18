@@ -1,7 +1,6 @@
-
 <div *ngIf="weather" id="cities">
   <div *ngFor="let city of weather.list">
-    <div class="city">
+    <div class="city" routerLink="/forecast/{{ city.id }}">
       <div class="city-info">
         <h2>{{ city.name }}</h2>
         <h3>{{ city.sys.country }}</h3>

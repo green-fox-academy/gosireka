@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://api.openweathermap.org/data/2.5/find?q=',
+  baseUrl: 'http://api.openweathermap.org/data/2.5/',
   apiKey: 'APPID=b6d6194629a5f9c209603b19ef7d3f7e'
 };
 
