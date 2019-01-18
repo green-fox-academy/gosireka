@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Your boots</title>
+  <link rel="stylesheet" type="text/css" href="../static/assets/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Vibur" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+
+<body>
+  <div id="head">
+      <i class="fas fa-sign-out-alt"></i>
+  </div>
+  <div id="details">
+    <h1 id="hello"></h1>
+    <div id="boots-table">
+      <h2>Your beautiful boots</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Color</th>
+            <th>Price</th>
+            <th>Link</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    <div id="manage">
+      <h2>Add new boots</h2>
+      <form>
+        <label for="color">Color</label>
+        <select required>
+          <option disabled selected value="">Select a color</option>
+          <option>black</option>
+          <option>brown</option>
+          <option>red</option>
+        </select>
+        <label for="price">Price</label>
+        <input type="text" required id="price" placeholder="  10000">
+        <label for="url">Url</label>
+        <input type="text" required id="url" placeholder="  https://www.ecipo.hu">
+        <input type="submit" id="add-btn" value="add">
+      </form>
+    </div>
+  </div>
+  <script src="../static/js/user.js"></script>
+</body>
+
+</html>
