@@ -1,8 +1,16 @@
 body{
   margin: 0;
   padding: 0;
+  width: 100%;
   background-image: url('./assets/clouds.jpg');
   background-size: cover;
+}
+
+@media screen and (max-width: 450px){
+  body{
+    background-image: none;
+    background-color: #698E98;
+  }
 }
 
 button{

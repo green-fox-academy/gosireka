@@ -1,0 +1,11 @@
+
+h1{
+  font-family: 'Lato';
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: lighter;
+  border-bottom: 0.5px solid black;
+  padding-bottom: 5px;
+  margin: 20px auto 5px auto;
+  letter-spacing: 5px;
+}

@@ -24,6 +24,7 @@
 
 .city:hover{
   width: 42%;
+  box-shadow: 3px 3px 10px #52525257;
 }
 
 .city:focus{
@@ -36,6 +37,34 @@
 
 .city-info h3{
   font-weight: lighter;
+}
+
+@media screen and (max-width: 900px){
+  .city{
+    width: 50%;
+  }
+  .city:hover{
+    width: 52%;
+  }
+}
+
+@media screen and (max-width: 750px){
+  .city{
+    width: 60%;
+  }.city:hover{
+    width: 62%;
+  }
+}
+
+@media screen and (max-width: 450px){
+  .city{
+    width: 90%;
+    margin: 5px 0;
+    padding: 5px;
+  }
+  .city:hover{
+    width: 92%;
+  }
 }
 
 img{

@@ -8,6 +8,7 @@ import { WeatherService } from '../weather.service';
   templateUrl: './forecast.component.html',
   styleUrls: ['./forecast.component.css']
 })
+
 export class ForecastComponent implements OnInit {
   forecast: Object;
 
@@ -23,11 +24,10 @@ export class ForecastComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.weatherService.getForecast(id).subscribe(data => {
       this.forecast = data;
-      console.log(data);
     });
   }
+
   goBack() {
     this.location.back();
   }
-
 }
