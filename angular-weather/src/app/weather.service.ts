@@ -15,7 +15,7 @@ export class WeatherService {
 
   getWeather(city: string): Observable<Object> {
     let weatherUrl = `${this.baseUrl}find?q=${city}&units=metric&${this.apiKey}`;
-    return this.http.get(weatherUrl);
+    return this.http.get<Object>(weatherUrl);
   }
   getForecast(id: number): Observable<Object> {
     let forecastUrl = `${this.baseUrl}forecast?id=${id}&units=metric&${this.apiKey}`;
